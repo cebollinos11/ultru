@@ -79,6 +79,31 @@ public class MapGenerator : MonoBehaviour {
 			roomCounter++;
 		}
 	}
+
+	void AttemptSpawnRoom(Transform fromRoom, Transform exitDoor, GameObject newRoomPrefab, int roomId) {
+		GameObject newRoom = SpawnRoom(fromRoom, exitDoor, newRoomPrefab, roomId);
+		int tryCounter = 0;
+		while (newRoom == null && tryCounter < maxSpawnAttempts) {
+			GameObject.Destroy(newRoom);
+			newRoom = SpawnRoom(fromRoom, exitDoor, newRoomPrefab, roomId);
+			tryCounter++;
+		}
+		if (tryCounter >= maxSpawnAttempts) {
+			//newExit.GetComponent<MeshRenderer>().enabled = false;
+			if (unusedDoorways.Count > 0 ) {
+				AttemptSpawnRoom();
+				return;
+			}
+			foreach (KeyValuePair<int, GameObject> k in locations) {
+				GameObject.Destroy(k.Value);
+			}
+			GenerateMap();
+		}
+		else {
+			locations.Add(roomCounter, newRoom);
+			roomCounter++;
+		}
+	}
 	
 	Transform GetUnusedExit() {
 		Transform returnValue;
@@ -130,11 +155,8 @@ public class MapGenerator : MonoBehaviour {
 
 	void PlaceExit() {
 		Debug.Log("Placing exit room"); 
-		int doorIndex = Random.Range(0, unusedDoorways.Count);
-		Transform doorway = unusedDoorways[doorIndex];
-		unusedDoorways.RemoveAt(doorIndex);
-
-
+		Transform newExit = GetUnusedExit();
+		AttemptSpawnRoom(newExit.parent.transform, newExit, exitRoom, roomCounter);
 	}
 
 	void CloseUnusedConnections() {
