@@ -5,21 +5,25 @@ using System.Collections.Generic;
 public class MapGenerator : MonoBehaviour {
 
 	[SerializeField] int maxRooms;
-	[SerializeField] GameObject spawnRoom;
-	[SerializeField] GameObject exitRoom;
+	[SerializeField] GameObject spawnRoomPrefab;
+	[SerializeField] GameObject exitRoomPrefab;
+	[SerializeField] GameObject doorPrefab;
 	[SerializeField] int maxSpawnAttempts = 10;
 	Object[] roomsDB;
 	Object[] hallwaysDB;
 	Dictionary<int, GameObject> locations;
 	List<Transform> unusedDoorways;
     List<Transform> closedDoorways;
+	Dictionary<Transform, Transform> roomConnections;
 	int roomCounter = 0;
-
+		
+	protected float ROOMDISTANCEOFFSET = 0.5f;
 
 
 	// Use this for initialization
 	void Start () {
 		locations = new Dictionary<int, GameObject>();
+		roomConnections = new Dictionary<Transform, Transform>();
 		unusedDoorways = new List<Transform>();
         closedDoorways = new List<Transform>();
 		roomsDB = Resources.LoadAll("mapgen/rooms");
@@ -39,7 +43,7 @@ public class MapGenerator : MonoBehaviour {
 		locations = new Dictionary<int, GameObject>();
 		unusedDoorways = new List<Transform>();
 		roomCounter = 0;
-		GameObject spawnedRoom = (GameObject)Instantiate(spawnRoom, Vector3.zero, Quaternion.identity);
+		GameObject spawnedRoom = (GameObject)Instantiate(spawnRoomPrefab, Vector3.zero, Quaternion.identity);
 		Room room = spawnedRoom.GetComponent<Room>();
 		locations.Add(roomCounter, spawnedRoom);
 		unusedDoorways.AddRange(room.doorways);
@@ -50,7 +54,7 @@ public class MapGenerator : MonoBehaviour {
 			AttemptSpawnRoom();
 		}
 		PlaceExit();
-
+		PlaceDoors();
         CloseUnusedConnections();
 	}
 
@@ -140,6 +144,7 @@ public class MapGenerator : MonoBehaviour {
 		
 		//entrance.GetComponent<MeshRenderer>().enabled = false;
 		//selectedDoorway.GetComponent<MeshRenderer>().enabled = false;
+		roomConnections.Add(entrance, selectedDoorway);
 		room.connections.Add(entrance, selectedDoorway);
 		entrance.parent.GetComponent<Room>().connections.Add(selectedDoorway, entrance);
 		unusedDoorways.AddRange(temp);
@@ -150,13 +155,23 @@ public class MapGenerator : MonoBehaviour {
 		Vector3 newrot = doorway1.rotation.eulerAngles - doorway2.rotation.eulerAngles +new Vector3(0, 180, 0);
 		room2.rotation = Quaternion.Euler(0, newrot.y+room2.rotation.eulerAngles.y, 0);
 		room2.position = doorway1.position;
-		room2.position -= doorway2.position-room2.position;
+		Vector3 temp = doorway2.position - room2.position;
+		room2.position -= temp - doorway1.forward * ROOMDISTANCEOFFSET;
 	}
 
 	void PlaceExit() {
 		Debug.Log("Placing exit room"); 
 		Transform newExit = GetUnusedExit();
-		AttemptSpawnRoom(newExit.parent.transform, newExit, exitRoom, roomCounter);
+		AttemptSpawnRoom(newExit.parent.transform, newExit, exitRoomPrefab, roomCounter);
+	}
+
+	void PlaceDoors() {
+		Debug.Log("Placing doors in open doorways");
+		foreach (KeyValuePair<Transform, Transform> k in roomConnections) {
+			GameObject door = (GameObject) GameObject.Instantiate(doorPrefab, k.Key.position - ((k.Value.position - k.Key.position) / 2), k.Key.rotation);
+			door.transform.position += door.transform.position - door.GetComponentInChildren<Door>().zero.position;
+		}
+
 	}
 
 	void CloseUnusedConnections() {

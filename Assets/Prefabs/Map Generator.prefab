@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.747378826, y: -1.28948307, z: 2.2109623}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,8 +40,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRooms: 4
-  spawnRoom: {fileID: 177274, guid: c9e1e7b634fa6604e95d2150b84a75f5, type: 2}
-  exitRoom: {fileID: 177274, guid: e8ee26d38b2ea284fbab1df5876471b4, type: 2}
+  spawnRoomPrefab: {fileID: 177274, guid: c9e1e7b634fa6604e95d2150b84a75f5, type: 2}
+  exitRoomPrefab: {fileID: 177274, guid: e8ee26d38b2ea284fbab1df5876471b4, type: 2}
+  doorPrefab: {fileID: 100000, guid: cfef738579cd02c40b3b1d63e67b0f84, type: 2}
   maxSpawnAttempts: 10
 --- !u!1001 &100100000
 Prefab:
