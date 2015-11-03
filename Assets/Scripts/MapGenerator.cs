@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour {
 
 	[SerializeField] int maxRooms;
 	[SerializeField] GameObject spawnRoom;
+	[SerializeField] GameObject exitRoom;
 	[SerializeField] int maxSpawnAttempts = 10;
 	Object[] roomsDB;
 	Object[] hallwaysDB;
@@ -14,10 +15,6 @@ public class MapGenerator : MonoBehaviour {
     List<Transform> closedDoorways;
 	int roomCounter = 0;
 
-
-	//Testing Variables - TO DELETE
-	float counter = 0;
-	[SerializeField] GameObject tested;
 
 
 	// Use this for initialization
@@ -52,6 +49,8 @@ public class MapGenerator : MonoBehaviour {
 		for (int i = roomCounter; i < maxRooms; i++) {
 			AttemptSpawnRoom();
 		}
+		PlaceExit();
+
         CloseUnusedConnections();
 	}
 
@@ -127,6 +126,15 @@ public class MapGenerator : MonoBehaviour {
 		room2.rotation = Quaternion.Euler(0, newrot.y+room2.rotation.eulerAngles.y, 0);
 		room2.position = doorway1.position;
 		room2.position -= doorway2.position-room2.position;
+	}
+
+	void PlaceExit() {
+		Debug.Log("Placing exit room"); 
+		int doorIndex = Random.Range(0, unusedDoorways.Count);
+		Transform doorway = unusedDoorways[doorIndex];
+		unusedDoorways.RemoveAt(doorIndex);
+
+
 	}
 
 	void CloseUnusedConnections() {
