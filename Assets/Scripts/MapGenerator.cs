@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour {
 	[SerializeField] GameObject exitRoomPrefab;
 	[SerializeField] GameObject doorPrefab;
 	[SerializeField] int maxSpawnAttempts = 10;
+    [SerializeField] float noDoorProbabilityPercent = 35;
 	Object[] roomsDB;
 	Object[] hallwaysDB;
 	Dictionary<int, GameObject> locations;
@@ -170,8 +171,8 @@ public class MapGenerator : MonoBehaviour {
 		foreach (KeyValuePair<Transform, Transform> k in roomConnections) {
 			GameObject door = (GameObject) GameObject.Instantiate(doorPrefab, k.Key.position - ((k.Value.position - k.Key.position) / 2), k.Key.rotation);
 			door.transform.position += door.transform.position - door.GetComponentInChildren<Door>().zero.position;
+            door.GetComponentInChildren<Door>().SetDoorVisibility(noDoorProbabilityPercent >= Random.Range(1, 100));
 		}
-
 	}
 
 	void CloseUnusedConnections() {
