@@ -178,7 +178,7 @@ GameObject:
   - 114: {fileID: 11472206}
   - 65: {fileID: 6592844}
   m_Layer: 0
-  m_Name: 12x3Hallway2doorways
+  m_Name: 25x5Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 100656}
   m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: 0, y: 2.5, z: 2.5}
-  m_LocalScale: {x: 1.20000005, y: 1, z: .5}
+  m_LocalScale: {x: 2.5, y: 1, z: .5}
   m_Children:
   - {fileID: 492608}
   m_Father: {fileID: 405670}
@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 114786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: .100000001, z: 5}
+  m_LocalScale: {x: 25, y: .100000001, z: 5}
   m_Children: []
   m_Father: {fileID: 467216}
   m_RootOrder: 1
@@ -266,7 +266,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126732}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -6, y: 0, z: -0}
+  m_LocalPosition: {x: -12.6000004, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413860}
@@ -279,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176224}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalPosition: {x: 12.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430658}
@@ -293,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 136602}
   m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: -0, y: 2.5, z: -2.5}
-  m_LocalScale: {x: 1.20000005, y: 1, z: .5}
+  m_LocalScale: {x: 2.5, y: 1, z: .5}
   m_Children:
   - {fileID: 411356}
   m_Father: {fileID: 405670}
@@ -305,7 +305,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.74715328, y: 1.98249435, z: 2.12605453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445134}
@@ -551,8 +551,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.5, y: 1, z: 4.6392107}
-  m_Center: {x: 0, y: 0, z: .0614706278}
+  m_Size: {x: 24.2162933, y: 1, z: 3.93594289}
+  m_Center: {x: .188640594, y: 0, z: -.23697269}
 --- !u!114 &11425756
 MonoBehaviour:
   m_ObjectHideFlags: 1
