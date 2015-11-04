@@ -8,7 +8,8 @@ public class MapGenerator : MonoBehaviour {
 	[SerializeField] GameObject spawnRoomPrefab;
 	[SerializeField] GameObject exitRoomPrefab;
 	[SerializeField] GameObject doorPrefab;
-	[SerializeField] int maxSpawnAttempts = 10;
+    [SerializeField] GameObject blockedDoorPrefab;
+    [SerializeField] int maxSpawnAttempts = 10;
     [SerializeField] float noDoorProbabilityPercent = 35;
 	Object[] roomsDB;
 	Object[] hallwaysDB;
@@ -185,6 +186,9 @@ public class MapGenerator : MonoBehaviour {
             foreach (Transform t in room.doorways) {
                 if (!room.connections.ContainsValue(t)) {
                     closedDoorways.Add(t);
+                    GameObject blockedDoor = (GameObject)GameObject.Instantiate(blockedDoorPrefab, t.position, t.rotation);
+                    Transform doorZero = blockedDoor.transform.FindChild("Zero");
+                    blockedDoor.transform.position += blockedDoor.transform.position - doorZero.position;
                 }
             }
         }

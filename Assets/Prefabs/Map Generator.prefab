@@ -43,7 +43,9 @@ MonoBehaviour:
   spawnRoomPrefab: {fileID: 177274, guid: c9e1e7b634fa6604e95d2150b84a75f5, type: 2}
   exitRoomPrefab: {fileID: 177274, guid: e8ee26d38b2ea284fbab1df5876471b4, type: 2}
   doorPrefab: {fileID: 100000, guid: cfef738579cd02c40b3b1d63e67b0f84, type: 2}
+  blockedDoorPrefab: {fileID: 100000, guid: 14ad492547932444ba9aa29a85c343ac, type: 2}
   maxSpawnAttempts: 10
+  noDoorProbabilityPercent: 35
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
