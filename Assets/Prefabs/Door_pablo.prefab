@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+  - 95: {fileID: 9508692}
   m_Layer: 0
   m_Name: Door_pablo
   m_TagString: Untagged
@@ -427,6 +428,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.95448971, y: 7.07999992, z: 4.46999979}
   m_Center: {x: 0, y: 0, z: 2.25}
+--- !u!95 &9508692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15f743285e22b934aba6541d0177068f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1

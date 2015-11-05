@@ -6,16 +6,21 @@ public class Door : MonoBehaviour {
 	[SerializeField] Animation doorAnim;
 	public Transform zero;
 
+
 	void OnTriggerEnter (Collider col) {
-		doorAnim.Play("open");
+        GetComponentInParent<Animator>().SetBool("PlayerNearby", true);
 	}
 	
 	void OnTriggerExit (Collider obj) {
-		doorAnim.Play("close");
-	}
+        GetComponentInParent<Animator>().SetBool("PlayerNearby", false);
+    }
 
-	void SetDoorVisibility (bool isVisible) {
+	public void SetDoorVisibility (bool isVisible) {
 		doorAnim.GetComponent<MeshRenderer>().enabled = isVisible;
 	}
+
+    void Update() {
+        
+    }
 
 }
