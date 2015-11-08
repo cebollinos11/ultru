@@ -25,7 +25,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498258}
-  - 114: {fileID: 11464556}
   m_Layer: 0
   m_Name: Exit (1)
   m_TagString: Untagged
@@ -146,7 +145,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465476}
-  - 114: {fileID: 11480484}
   m_Layer: 0
   m_Name: Exit (2)
   m_TagString: Untagged
@@ -381,7 +379,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494558}
-  - 114: {fileID: 11408500}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -1263,18 +1260,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11408500
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410b3fed9a5341e41abd0a3997da719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 1
 --- !u!114 &11449148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1290,30 +1275,6 @@ MonoBehaviour:
   - {fileID: 494558}
   - {fileID: 498258}
   - {fileID: 465476}
---- !u!114 &11464556
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410b3fed9a5341e41abd0a3997da719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 1
---- !u!114 &11480484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410b3fed9a5341e41abd0a3997da719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 1
 --- !u!208 &20815296
 NavMeshObstacle:
   m_ObjectHideFlags: 1

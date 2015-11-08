@@ -96,7 +96,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444092}
-  - 114: {fileID: 11409664}
   m_Layer: 0
   m_Name: Exit (1)
   m_TagString: Untagged
@@ -199,7 +198,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407040}
-  - 114: {fileID: 11473332}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -835,18 +833,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 29.3602104, y: 4.73204231, z: 29.6065292}
   m_Center: {x: -.00511741638, y: 1.86602116, z: -12.4952965}
---- !u!114 &11409664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410b3fed9a5341e41abd0a3997da719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 1
 --- !u!114 &11424696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -861,18 +847,6 @@ MonoBehaviour:
   doorways:
   - {fileID: 407040}
   - {fileID: 444092}
---- !u!114 &11473332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410b3fed9a5341e41abd0a3997da719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 1
 --- !u!208 &20806560
 NavMeshObstacle:
   m_ObjectHideFlags: 1
