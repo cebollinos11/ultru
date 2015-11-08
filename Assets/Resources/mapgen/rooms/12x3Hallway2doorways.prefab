@@ -57,7 +57,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 444582}
   - 33: {fileID: 3354636}
-  - 65: {fileID: 6552352}
   - 23: {fileID: 2381732}
   m_Layer: 0
   m_Name: Floor
@@ -126,6 +125,7 @@ GameObject:
   - 33: {fileID: 3388986}
   - 64: {fileID: 6471426}
   - 23: {fileID: 2324160}
+  - 208: {fileID: 20861004}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -144,6 +144,7 @@ GameObject:
   - 33: {fileID: 3357516}
   - 64: {fileID: 6471238}
   - 23: {fileID: 2385584}
+  - 208: {fileID: 20859854}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -305,7 +306,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7.11999989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445134}
@@ -517,18 +518,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6552352
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114786}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6561876
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -548,11 +537,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176688}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.5, y: 1, z: 4.6392107}
-  m_Center: {x: 0, y: 0, z: .0614706278}
+  m_Size: {x: 11.7339401, y: 5.34430695, z: 4.79307795}
+  m_Center: {x: .0355377197, y: 2.17215347, z: -.015463829}
 --- !u!114 &11425756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,6 +580,36 @@ MonoBehaviour:
   doorways:
   - {fileID: 445134}
   - {fileID: 462754}
+--- !u!208 &20859854
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164190}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 9.99999975e-06, z: 5}
+  m_MoveThreshold: .100000001
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: .5
+--- !u!208 &20861004
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143568}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 9.99999975e-06, z: 5}
+  m_MoveThreshold: .100000001
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: .5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
