@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3385760}
   - 65: {fileID: 6580246}
   - 23: {fileID: 2392688}
-  - 114: {fileID: 11419648}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
@@ -49,7 +48,6 @@ GameObject:
   - 33: {fileID: 3332390}
   - 65: {fileID: 6539102}
   - 23: {fileID: 2392042}
-  - 114: {fileID: 11451240}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -266,7 +264,7 @@ GameObject:
   - 114: {fileID: 11424696}
   - 65: {fileID: 6581296}
   m_Layer: 0
-  m_Name: LHallway
+  m_Name: LHallway 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -58,7 +58,6 @@ GameObject:
   - 4: {fileID: 444582}
   - 33: {fileID: 3354636}
   - 23: {fileID: 2381732}
-  - 114: {fileID: 11415022}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -125,7 +124,7 @@ GameObject:
   - 33: {fileID: 3388986}
   - 64: {fileID: 6471426}
   - 23: {fileID: 2324160}
-  - 208: {fileID: 20879892}
+  - 208: {fileID: 20861004}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -144,7 +143,7 @@ GameObject:
   - 33: {fileID: 3357516}
   - 64: {fileID: 6471238}
   - 23: {fileID: 2385584}
-  - 208: {fileID: 20851218}
+  - 208: {fileID: 20859854}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -178,7 +177,7 @@ GameObject:
   - 114: {fileID: 11472206}
   - 65: {fileID: 6592844}
   m_Layer: 0
-  m_Name: 25x5Hallway
+  m_Name: 12x3Hallway2doorways 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 100656}
   m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: 0, y: 2.5, z: 2.5}
-  m_LocalScale: {x: 2.5, y: 1, z: .5}
+  m_LocalScale: {x: 1.20000005, y: 1, z: .5}
   m_Children:
   - {fileID: 492608}
   m_Father: {fileID: 405670}
@@ -255,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 114786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: .100000001, z: .5}
+  m_LocalScale: {x: 1.20000005, y: .100000001, z: .5}
   m_Children: []
   m_Father: {fileID: 467216}
   m_RootOrder: 1
@@ -266,7 +265,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126732}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -12.6000004, y: 0, z: -0}
+  m_LocalPosition: {x: -6, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413860}
@@ -279,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176224}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 12.5, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430658}
@@ -293,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 136602}
   m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: -0, y: 2.5, z: -2.5}
-  m_LocalScale: {x: 2.5, y: 1, z: .5}
+  m_LocalScale: {x: 1.20000005, y: 1, z: .5}
   m_Children:
   - {fileID: 411356}
   m_Father: {fileID: 405670}
@@ -305,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.7909508, y: -3.9293108, z: 28.6669903}
+  m_LocalPosition: {x: 33.6151962, y: -9.3046751, z: 41.6318283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445134}
@@ -539,8 +538,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.6461334, y: 1, z: 4.93890572}
-  m_Center: {x: -.0262794495, y: 0, z: -.0220537186}
+  m_Size: {x: 11.7339401, y: 5.34430695, z: 4.79307795}
+  m_Center: {x: .0355377197, y: 2.17215347, z: -.015463829}
 --- !u!114 &11472206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,7 +554,7 @@ MonoBehaviour:
   doorways:
   - {fileID: 445134}
   - {fileID: 462754}
---- !u!208 &20851218
+--- !u!208 &20859854
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -570,7 +569,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: .5
---- !u!208 &20879892
+--- !u!208 &20861004
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
