@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 406152}
   - 33: {fileID: 3382046}
   - 23: {fileID: 2321138}
+  - 114: {fileID: 11414282}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -533,7 +534,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.62109375, y: -.427734375, z: -4.00390625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494558}
@@ -649,7 +650,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164244}
   m_LocalRotation: {x: -.5, y: -.5, z: -.500000119, w: .49999994}
-  m_LocalPosition: {x: -30, y: 5, z: 21.5}
+  m_LocalPosition: {x: -30, y: 5, z: 21.25}
   m_LocalScale: {x: 3.75, y: 1, z: 1}
   m_Children:
   - {fileID: 424876}
@@ -1260,6 +1261,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11414282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbc5e8c82e1f4049b5ecd04f4801462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 10
 --- !u!114 &11449148
 MonoBehaviour:
   m_ObjectHideFlags: 1
