@@ -35,9 +35,6 @@ public class MapGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.A)) {
-            CloseUnusedConnections();
-		}
 	}
 	
 	void GenerateMap() {
@@ -172,7 +169,7 @@ public class MapGenerator : MonoBehaviour {
 		foreach (KeyValuePair<Transform, Transform> k in roomConnections) {
 			GameObject door = (GameObject) GameObject.Instantiate(doorPrefab, k.Key.position - ((k.Value.position - k.Key.position) / 2), k.Key.rotation);
 			door.transform.position += door.transform.position - door.GetComponentInChildren<Door>().zero.position;
-            door.GetComponentInChildren<Door>().SetDoorVisibility(noDoorProbabilityPercent >= Random.Range(1, 100));
+            door.GetComponentInChildren<Door>().SetDoorVisibility(!(noDoorProbabilityPercent >= Random.Range(1, 100)));
 		}
 	}
 

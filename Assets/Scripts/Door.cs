@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 
 public class Door : MonoBehaviour {
@@ -17,6 +17,7 @@ public class Door : MonoBehaviour {
 
 	public void SetDoorVisibility (bool isVisible) {
 		doorAnim.GetComponent<MeshRenderer>().enabled = isVisible;
+        transform.GetChild(0).GetComponent<BoxCollider>().enabled = isVisible;
 	}
 
     void Update() {
