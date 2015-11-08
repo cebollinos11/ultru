@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445134}
-  - 114: {fileID: 11425756}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -161,7 +160,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462754}
-  - 114: {fileID: 11438972}
   m_Layer: 0
   m_Name: Exit (1)
   m_TagString: Untagged
@@ -543,6 +541,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.7339401, y: 5.34430695, z: 4.79307795}
   m_Center: {x: .0355377197, y: 2.17215347, z: -.015463829}
+<<<<<<< HEAD
 --- !u!114 &11425756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 1
+=======
+>>>>>>> f39416a63382d984b4ca4bec23cce5fbba588ec8
 --- !u!114 &11472206
 MonoBehaviour:
   m_ObjectHideFlags: 1
