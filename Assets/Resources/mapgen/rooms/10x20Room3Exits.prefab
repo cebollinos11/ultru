@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 406152}
   - 33: {fileID: 3382046}
   - 23: {fileID: 2321138}
+  - 114: {fileID: 11486036}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -536,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -612.954102, y: 191.770538, z: -489.426392}
+  m_LocalPosition: {x: 2.62109375, y: -.427734375, z: -4.00390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494558}
@@ -1314,6 +1315,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 1
+--- !u!114 &11486036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbc5e8c82e1f4049b5ecd04f4801462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 5
 --- !u!208 &20815296
 NavMeshObstacle:
   m_ObjectHideFlags: 1
