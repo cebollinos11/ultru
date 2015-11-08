@@ -56,6 +56,7 @@ GameObject:
   - 33: {fileID: 3352370}
   - 64: {fileID: 6411554}
   - 23: {fileID: 2364222}
+  - 208: {fileID: 20842192}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -364,6 +365,7 @@ GameObject:
   - 33: {fileID: 3350418}
   - 64: {fileID: 6491574}
   - 23: {fileID: 2356146}
+  - 208: {fileID: 20876134}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1460,6 +1462,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: .5
+--- !u!208 &20842192
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 9.99999975e-06, z: 5}
+  m_MoveThreshold: .100000001
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: .5
 --- !u!208 &20856602
 NavMeshObstacle:
   m_ObjectHideFlags: 1
@@ -1481,6 +1498,21 @@ NavMeshObstacle:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173220}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 9.99999975e-06, z: 5}
+  m_MoveThreshold: .100000001
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: .5
+--- !u!208 &20876134
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173736}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
