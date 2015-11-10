@@ -16,8 +16,12 @@ public class MapGenerator : MonoBehaviour {
 	Dictionary<int, GameObject> locations;
 	List<Transform> unusedDoorways;
     List<Transform> closedDoorways;
+    List<Transform> rooms;
 	Dictionary<Transform, Transform> roomConnections;
 	int roomCounter = 0;
+
+    [SerializeField]
+    GameObject hackTerminal;
 		
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
@@ -40,6 +44,7 @@ public class MapGenerator : MonoBehaviour {
         closedDoorways = new List<Transform>();
 		roomsDB = Resources.LoadAll("mapgen/rooms");
 		hallwaysDB = Resources.LoadAll("mapgen/hallways");
+        rooms = new List<Transform>();
 		GenerateMap();
 	}
 	
@@ -55,6 +60,9 @@ public class MapGenerator : MonoBehaviour {
 		GameObject spawnedRoom = (GameObject)Instantiate(spawnRoomPrefab, Vector3.zero, Quaternion.identity);
 		Room room = spawnedRoom.GetComponent<Room>();
 		locations.Add(roomCounter, spawnedRoom);
+
+        
+
 		unusedDoorways.AddRange(room.doorways);
 		roomCounter++;
 
@@ -66,9 +74,27 @@ public class MapGenerator : MonoBehaviour {
 		PlaceDoors();
         CloseUnusedConnections();
         PaintAllRooms();
+        PopulateRooms();
 
 
 	}
+
+    void PopulateRooms() { 
+        
+        //first of all add hackable servers
+        SpawnWhatWhere(rooms[Random.Range(0,rooms.Count-1)], hackTerminal);
+        
+
+
+    }
+
+
+    void SpawnWhatWhere(Transform room, GameObject itemToSpawn) {
+        
+        GameObject go = Instantiate(itemToSpawn, room.position, room.rotation) as GameObject;
+        go.transform.parent = room.transform;
+    }
+    
 
     void PaintAllRooms() {
 
@@ -101,6 +127,14 @@ public class MapGenerator : MonoBehaviour {
 		else {
 			locations.Add(roomCounter, newRoom);
 			roomCounter++;
+
+            //if this is a room (to spawn objects), add it to the room list
+            
+            if (newRoom.GetComponent<Room>().isRoom)
+            {
+                rooms.Add(newRoom.transform);
+                
+            }
 		}
 	}
 
@@ -191,6 +225,7 @@ public class MapGenerator : MonoBehaviour {
 			GameObject door = (GameObject) GameObject.Instantiate(doorPrefab, k.Key.position - ((k.Value.position - k.Key.position) / 2), k.Key.rotation);
 			door.transform.position += door.transform.position - door.GetComponentInChildren<Door>().zero.position;
             door.GetComponentInChildren<Door>().SetDoorVisibility(!(noDoorProbabilityPercent >= Random.Range(1, 100)));
+            door.transform.parent = k.Key.transform.parent;
 		}
 	}
 

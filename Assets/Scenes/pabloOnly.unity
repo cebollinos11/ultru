@@ -311,6 +311,7 @@ MonoBehaviour:
   blockedDoorPrefab: {fileID: 100000, guid: 14ad492547932444ba9aa29a85c343ac, type: 2}
   maxSpawnAttempts: 3
   noDoorProbabilityPercent: 10
+  hackTerminal: {fileID: 127192, guid: b7cd27728d4600a469909c25993446d7, type: 2}
   floorTexture: {fileID: 2800000, guid: 30d15104a72b81c43956995b4a3e12ad, type: 3}
   floorNormalMap: {fileID: 2800000, guid: e3afed1118ab7f249bccd2e0e44f10e1, type: 3}
   wallTexture: {fileID: 2800000, guid: 33322eac76f79eb48a8a95610daffbb6, type: 3}
