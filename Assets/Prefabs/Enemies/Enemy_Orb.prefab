@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3393262}
   - 135: {fileID: 13553440}
   - 23: {fileID: 2340922}
-  - 114: {fileID: 11448810}
   - 195: {fileID: 19520040}
   - 54: {fileID: 5415156}
+  - 114: {fileID: 11435910}
   m_Layer: 0
   m_Name: Enemy_Orb
   m_TagString: Untagged
@@ -72,14 +72,14 @@ Rigidbody:
   m_GameObject: {fileID: 153512}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 100
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11448810
+--- !u!114 &11435910
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -87,11 +87,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 153512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001142f63aca1ed4693d1126a6353fbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f6c49ab45255f149b64f79818cec443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayCastTimer: 1
-  viewRange: 20
+  _playerLocationUpdateTime: .5
+  _viewRange: 20
+  _minDistanceToPlayer: 3
 --- !u!135 &13553440
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -112,7 +113,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 153512}
   m_Enabled: 1
   m_Radius: .620000005
-  m_Speed: 8
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -130,7 +131,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: playerLocationUpdateTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153512}
