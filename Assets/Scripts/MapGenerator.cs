@@ -22,6 +22,16 @@ public class MapGenerator : MonoBehaviour {
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
 
+    [SerializeField] Texture floorTexture;
+    [SerializeField]
+    Texture floorNormalMap;
+
+    [SerializeField]
+    Texture wallTexture;
+    [SerializeField]
+    Texture wallNormalMap;
+
+
 	// Use this for initialization
 	void Start () {
 		locations = new Dictionary<int, GameObject>();
@@ -55,7 +65,18 @@ public class MapGenerator : MonoBehaviour {
 		PlaceExit();
 		PlaceDoors();
         CloseUnusedConnections();
+        PaintAllRooms();
+
+
 	}
+
+    void PaintAllRooms() {
+
+        foreach (KeyValuePair<int, GameObject> k in locations) {
+            PaintRoom(k.Value.transform);
+        }
+        
+    }
 
 	void AttemptSpawnRoom() {
 		Transform newExit = GetUnusedExit();
@@ -172,6 +193,47 @@ public class MapGenerator : MonoBehaviour {
             door.GetComponentInChildren<Door>().SetDoorVisibility(!(noDoorProbabilityPercent >= Random.Range(1, 100)));
 		}
 	}
+
+    void PaintRoom(Transform room)
+    {
+
+        Transform floor = room.FindChild("Floor");
+        ApplyTextureTo(floor, floorTexture, floorNormalMap, 2);
+
+        Transform ceiling = room.FindChild("Ceiling");
+        if (ceiling == null) { Debug.Log("NO CEILING FOUND");
+        Debug.Log(room.name);
+        }
+        ApplyTextureTo(ceiling, floorTexture, floorNormalMap, 2);
+
+        //walls
+        Transform wallPack = room.FindChild("Walls");
+        
+        if (wallPack == null) { return; }
+        foreach (Transform child in wallPack)
+        {
+            //child is your child transform
+            ApplyTextureTo(child.FindChild("Plane"), wallTexture, wallNormalMap, 1);
+        }
+
+    }
+
+    void ApplyTextureTo(Transform who, Texture texture, Texture normalMap, int multiplier)
+    {
+        //Debug.Log(who);
+        if (who == null) { return; }
+        Material mat = who.GetComponent<MeshRenderer>().material;
+
+        mat.mainTexture = texture;
+        mat.color = Color.white;
+        mat.SetTexture("_BumpMap", normalMap);
+
+        //tiling
+        mat.mainTextureScale = new Vector2(who.transform.lossyScale.x, who.transform.lossyScale.z) * multiplier;
+
+
+
+    }
 
 	void CloseUnusedConnections() {
         Debug.Log("Closing unused connections!");
