@@ -13,7 +13,7 @@ public class MapGenerator : MonoBehaviour {
     [SerializeField] float noDoorProbabilityPercent = 35;
 	Object[] roomsDB;
 	Object[] hallwaysDB;
-	Dictionary<int, GameObject> locations;
+	public Dictionary<int, GameObject> locations;
 	List<Transform> unusedDoorways;
     List<Transform> closedDoorways;
     List<Transform> rooms;
@@ -26,14 +26,12 @@ public class MapGenerator : MonoBehaviour {
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
 
-    [SerializeField] Texture floorTexture;
+    [SerializeField] Material floorMaterial;
     [SerializeField]
-    Texture floorNormalMap;
+    Material wallMaterial;
 
     [SerializeField]
-    Texture wallTexture;
-    [SerializeField]
-    Texture wallNormalMap;
+    Material CeilingMaterial;
 
 
 	// Use this for initialization
@@ -44,7 +42,7 @@ public class MapGenerator : MonoBehaviour {
         closedDoorways = new List<Transform>();
 		roomsDB = Resources.LoadAll("mapgen/rooms");
 		hallwaysDB = Resources.LoadAll("mapgen/hallways");
-        rooms = new List<Transform>();
+        
 		GenerateMap();
 	}
 	
@@ -54,9 +52,18 @@ public class MapGenerator : MonoBehaviour {
 	
 	void GenerateMap() {
         Debug.Log("Generating spawn room");
-		locations = new Dictionary<int, GameObject>();
+
+        foreach (KeyValuePair<int, GameObject> k in locations)
+        {
+            GameObject.Destroy(k.Value);
+        }
+        
+        locations = new Dictionary<int, GameObject>();
 		unusedDoorways = new List<Transform>();
+        rooms = new List<Transform>();
 		roomCounter = 0;
+
+
 		GameObject spawnedRoom = (GameObject)Instantiate(spawnRoomPrefab, Vector3.zero, Quaternion.identity);
 		Room room = spawnedRoom.GetComponent<Room>();
 		locations.Add(roomCounter, spawnedRoom);
@@ -74,6 +81,7 @@ public class MapGenerator : MonoBehaviour {
 		PlaceDoors();
         CloseUnusedConnections();
         PaintAllRooms();
+        transform.GetComponent<Decorator>().DecorateLocations();
         PopulateRooms();
 
 
@@ -235,10 +243,10 @@ public class MapGenerator : MonoBehaviour {
         foreach (Transform t in room)
          {
              if (t.name == "Floor")
-                 ApplyTextureTo(t, floorTexture, floorNormalMap, 2);
+                 ApplyMaterialTo(t, floorMaterial, 4);
 
             if(t.name == "Ceiling")
-                ApplyTextureTo(t, floorTexture, floorNormalMap, 2);            
+                ApplyMaterialTo(t, CeilingMaterial, 4);            
          }
 
        // Transform floor = room.FindChild("Floor");
@@ -257,11 +265,20 @@ public class MapGenerator : MonoBehaviour {
         foreach (Transform child in wallPack)
         {
             //child is your child transform
-            ApplyTextureTo(child.FindChild("Plane"), wallTexture, wallNormalMap, 1);
+            ApplyMaterialTo(child.FindChild("Plane"),wallMaterial,  2);
         }
 
     }
+    void ApplyMaterialTo(Transform who, Material material, int multiplier) {
 
+        who.GetComponent<MeshRenderer>().material = material;
+        Vector2 scale = new Vector2(who.transform.lossyScale.x, who.transform.lossyScale.z) * multiplier;
+        who.GetComponent<MeshRenderer>().material.mainTextureScale = scale;
+        who.GetComponent<MeshRenderer>().material.SetTextureScale("_BumpMap",scale);
+        
+
+
+    }
     void ApplyTextureTo(Transform who, Texture texture, Texture normalMap, int multiplier)
     {
         //Debug.Log(who);
