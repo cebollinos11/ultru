@@ -16,6 +16,11 @@ public class CeilingBuilder : MonoBehaviour {
 
         instance.transform.parent = transform.parent;
         instance.transform.name = "Ceiling";
+
+        //place ligths
+        GameObject light = Instantiate(Resources.Load("Prefabs/BasicLight", typeof(GameObject))) as GameObject;
+        light.transform.position = instance.transform.position;
+        light.transform.parent = instance.transform;
         
 	    
 	}

@@ -232,14 +232,23 @@ public class MapGenerator : MonoBehaviour {
     void PaintRoom(Transform room)
     {
 
-        Transform floor = room.FindChild("Floor");
-        ApplyTextureTo(floor, floorTexture, floorNormalMap, 2);
+        foreach (Transform t in room)
+         {
+             if (t.name == "Floor")
+                 ApplyTextureTo(t, floorTexture, floorNormalMap, 2);
 
-        Transform ceiling = room.FindChild("Ceiling");
-        if (ceiling == null) { Debug.Log("NO CEILING FOUND");
-        Debug.Log(room.name);
-        }
-        ApplyTextureTo(ceiling, floorTexture, floorNormalMap, 2);
+            if(t.name == "Ceiling")
+                ApplyTextureTo(t, floorTexture, floorNormalMap, 2);            
+         }
+
+       // Transform floor = room.FindChild("Floor");
+        //ApplyTextureTo(floor, floorTexture, floorNormalMap, 2);
+
+        //Transform ceiling = room.FindChild("Ceiling");
+        //if (ceiling == null) { Debug.Log("NO CEILING FOUND");
+        //Debug.Log(room.name);
+        //}
+        //ApplyTextureTo(ceiling, floorTexture, floorNormalMap, 2);
 
         //walls
         Transform wallPack = room.FindChild("Walls");
