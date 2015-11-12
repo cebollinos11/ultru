@@ -24,13 +24,12 @@ public class Decorator : MonoBehaviour {
        
 
 
-        Debug.Log("mg locations is " + mG.ToString());
-
         foreach (KeyValuePair<int, GameObject> k in mG.locations)
         {
+            
             //PaintRoom(k.Value.transform);
             Transform wallPack = k.Value.transform.FindChild("Walls");
-
+            Debug.Log("decorating " + k.Value.name+ " "+wallPack);
             if (wallPack == null) { return; }
             foreach (Transform child in wallPack)
             {
@@ -48,11 +47,13 @@ public class Decorator : MonoBehaviour {
 
     void PlaceWallDecoration(Transform wall)
     {
-
+        
         //dont decorate small walls
-        if (wall.lossyScale.x < 1)
+        if (wall.lossyScale.x < 0.9)
+        {
+            
             return;
-
+        }
         float horizontalOffset = Random.Range( -wall.lossyScale.x*10/3,wall.lossyScale.x*10/3);       
         
         
