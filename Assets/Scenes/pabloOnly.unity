@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: .610344827, g: .610344827, b: .610344827, a: 1}
   m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
-  m_AmbientIntensity: 2.31999993
+  m_AmbientIntensity: 0
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
@@ -131,6 +131,10 @@ Prefab:
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10881388, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Range
+      value: 62.9900017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -244,9 +248,6 @@ MonoBehaviour:
   maxSpawnAttempts: 3
   noDoorProbabilityPercent: 10
   hackTerminal: {fileID: 127192, guid: b7cd27728d4600a469909c25993446d7, type: 2}
-  floorMaterial: {fileID: 2100000, guid: 8aac9c1af5caf8341a4ae0e89cdf3317, type: 2}
-  wallMaterial: {fileID: 2100000, guid: 61d04e4673d5eee4db4b4a56100bc2bd, type: 2}
-  CeilingMaterial: {fileID: 2100000, guid: b3032fb7ef5e4c946a04badb3e3a410b, type: 2}
 --- !u!4 &1722816302
 Transform:
   m_ObjectHideFlags: 0
@@ -330,4 +331,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0

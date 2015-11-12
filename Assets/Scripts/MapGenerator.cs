@@ -25,13 +25,10 @@ public class MapGenerator : MonoBehaviour {
 		
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
+    Decorator decorator;
 
-    [SerializeField] Material floorMaterial;
-    [SerializeField]
-    Material wallMaterial;
 
-    [SerializeField]
-    Material CeilingMaterial;
+
 
 
 	// Use this for initialization
@@ -42,7 +39,9 @@ public class MapGenerator : MonoBehaviour {
         closedDoorways = new List<Transform>();
 		roomsDB = Resources.LoadAll("mapgen/rooms");
 		hallwaysDB = Resources.LoadAll("mapgen/hallways");
-        
+
+        decorator = GetComponent<Decorator>();
+
 		GenerateMap();
 	}
 	
@@ -80,8 +79,9 @@ public class MapGenerator : MonoBehaviour {
 		PlaceExit();
 		PlaceDoors();
         CloseUnusedConnections();
-        PaintAllRooms();
         transform.GetComponent<Decorator>().InitializeDecorator();
+        PaintAllRooms();
+        
         transform.GetComponent<Decorator>().DecorateLocations();
         PopulateRooms();
 
@@ -108,7 +108,7 @@ public class MapGenerator : MonoBehaviour {
     void PaintAllRooms() {
 
         foreach (KeyValuePair<int, GameObject> k in locations) {
-            PaintRoom(k.Value.transform);
+            decorator.PaintRoom(k.Value.transform);
         }
         
     }
@@ -238,64 +238,23 @@ public class MapGenerator : MonoBehaviour {
 		}
 	}
 
-    void PaintRoom(Transform room)
-    {
 
-        foreach (Transform t in room)
-         {
-             if (t.name == "Floor")
-                 ApplyMaterialTo(t, floorMaterial, 4);
+    //void ApplyTextureTo(Transform who, Texture texture, Texture normalMap, int multiplier)
+    //{
+    //    //Debug.Log(who);
+    //    if (who == null) { return; }
+    //    Material mat = who.GetComponent<MeshRenderer>().material;
 
-            if(t.name == "Ceiling")
-                ApplyMaterialTo(t, CeilingMaterial, 4);            
-         }
+    //    mat.mainTexture = texture;
+    //    mat.color = Color.white;
+    //    mat.SetTexture("_BumpMap", normalMap);
 
-       // Transform floor = room.FindChild("Floor");
-        //ApplyTextureTo(floor, floorTexture, floorNormalMap, 2);
-
-        //Transform ceiling = room.FindChild("Ceiling");
-        //if (ceiling == null) { Debug.Log("NO CEILING FOUND");
-        //Debug.Log(room.name);
-        //}
-        //ApplyTextureTo(ceiling, floorTexture, floorNormalMap, 2);
-
-        //walls
-        Transform wallPack = room.FindChild("Walls");
-        
-        if (wallPack == null) { return; }
-        foreach (Transform child in wallPack)
-        {
-            //child is your child transform
-            ApplyMaterialTo(child.FindChild("Plane"),wallMaterial,  2);
-        }
-
-    }
-    void ApplyMaterialTo(Transform who, Material material, int multiplier) {
-
-        who.GetComponent<MeshRenderer>().material = material;
-        Vector2 scale = new Vector2(who.transform.lossyScale.x, who.transform.lossyScale.z) * multiplier;
-        who.GetComponent<MeshRenderer>().material.mainTextureScale = scale;
-        who.GetComponent<MeshRenderer>().material.SetTextureScale("_BumpMap",scale);
-        
-
-
-    }
-    void ApplyTextureTo(Transform who, Texture texture, Texture normalMap, int multiplier)
-    {
-        //Debug.Log(who);
-        if (who == null) { return; }
-        Material mat = who.GetComponent<MeshRenderer>().material;
-
-        mat.mainTexture = texture;
-        mat.color = Color.white;
-        mat.SetTexture("_BumpMap", normalMap);
-
-        //tiling
-        mat.mainTextureScale = new Vector2(who.transform.lossyScale.x, who.transform.lossyScale.z) * multiplier;
+    //    //tiling
+    //    mat.mainTextureScale = new Vector2(who.transform.lossyScale.x, who.transform.lossyScale.z) * multiplier;
 
 
 
-    }
+    //}
 
 	void CloseUnusedConnections() {
         Debug.Log("Closing unused connections!");
