@@ -9,15 +9,22 @@ public class Decorator : MonoBehaviour {
     [SerializeField]
     int WallDecorationProb;
 	// Use this for initialization
-	void Start () {
+
+
+    public void InitializeDecorator() {
 
         mG = transform.GetComponent<MapGenerator>();
         wallDecorationsDB = Resources.LoadAll("mapgen/walldecorations");
-	
-	}
+    
+    }
 
 
     public void DecorateLocations() {
+
+       
+
+
+        Debug.Log("mg locations is " + mG.ToString());
 
         foreach (KeyValuePair<int, GameObject> k in mG.locations)
         {
@@ -51,7 +58,8 @@ public class Decorator : MonoBehaviour {
         
         GameObject deco = Instantiate(wallDecorationsDB[Random.Range(0,wallDecorationsDB.Length)], wall.position,wall.rotation) as GameObject;
         deco.transform.Translate(horizontalOffset, 0f, 0f);
-       
+        deco.transform.position = new Vector3(deco.transform.position.x, 2.5f, deco.transform.position.z);
+        deco.transform.parent = wall.parent;
     }
 	
 	// Update is called once per frame

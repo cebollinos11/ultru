@@ -81,6 +81,7 @@ public class MapGenerator : MonoBehaviour {
 		PlaceDoors();
         CloseUnusedConnections();
         PaintAllRooms();
+        transform.GetComponent<Decorator>().InitializeDecorator();
         transform.GetComponent<Decorator>().DecorateLocations();
         PopulateRooms();
 
