@@ -13,8 +13,12 @@ public class Weapon : MonoBehaviour {
     protected float fireRate = 1;
     protected float range = float.MaxValue;
 
-	public void Fire() {
+	public virtual void Fire() {
         //Subtract ammunition from player
+    }
+
+    public virtual void StopFiring() {
+
     }
 
     public void Reload() {

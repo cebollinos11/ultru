@@ -12,7 +12,8 @@ public class Weapon_Raygun : Weapon {
     [SerializeField] float chargeTime = 2;
 
     float chargeTimeTotal = 0;
-
+    bool isFiring = false;
+    LineRenderer lineRenderer;
 
     // Use this for initialization
     void Start () {
@@ -21,37 +22,49 @@ public class Weapon_Raygun : Weapon {
         base.fireRate = _fireRate;
         base.range = _range;
         base.shootOrigin = _shootOrigin;
-
+        lineRenderer = GetComponentInChildren<LineRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetMouseButton(0)) {
+	    if (isFiring) {
             chargeTimeTotal += Time.deltaTime;
             if (chargeTimeTotal > chargeTime) {
                 chargeTimeTotal = chargeTime;
             }
+            Debug.Log("CHARGING MA LAZORZ " + chargeTimeTotal);
         }
-        else if (!Input.GetMouseButton(0) && chargeTimeTotal >= chargeTime) {
-            
+        else if (!isFiring && chargeTimeTotal >= chargeTime) {
+            Ray ray = new Ray(_shootOrigin.position, Camera.main.transform.forward);
+            RaycastHit hitinfo;
+            if (Physics.Raycast(ray, out hitinfo, _range)) {
+                Enemy enemy = hitinfo.transform.GetComponent<Enemy>();
+                if (enemy != null) {
+                    Debug.Log("PEWPEW!");
+                }
+                lineRenderer.SetVertexCount(2);
+                lineRenderer.SetPosition(0, _shootOrigin.position);
+                lineRenderer.SetPosition(1, hitinfo.point);
+            }
+            chargeTimeTotal = 0;
+        }
+        else if (!isFiring && chargeTimeTotal < chargeTime && chargeTimeTotal > 0) {
+            Debug.Log("No pew. :(");
+            chargeTimeTotal = 0;
         }
 	}
-
-    new void Fire() {
+    public override void Fire() {
         if (_shootOrigin == null) {
             Debug.LogError("The transform shootOrigin is not set, and " + GetType().Name + " can therefore not fire.");
             return;
         }
         base.Fire();
-        chargeTimeTotal = 0;
+        isFiring = true;
         //Play shoot animation
-        Ray ray = new Ray(_shootOrigin.position, _shootOrigin.forward);
-        RaycastHit hitinfo;
-        if (Physics.Raycast(ray, out hitinfo, _range)) {
-            Enemy enemy = hitinfo.transform.GetComponent<Enemy>();
-            if (enemy != null) {
-                Debug.Log("PEWPEW!");
-            }
-        }
+        
+    }
+
+    public override void StopFiring() {
+        isFiring = false;
     }
 }
