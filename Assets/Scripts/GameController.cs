@@ -1,35 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameController : Singleton<GameController> {
 
-    public static GameController Instance {
-        get {
-            if (instance == null) {
-                instance = new GameController();
-            }
-            return instance;
+    bool isShutdown = false;
+
+    public void ShutDown() {
+
+        //shuts down the space station, all ambient lights are off, and then after X time, the emergency lights start
+
+        if (isShutdown) { return;
         }
-        private set {
 
+        isShutdown = true;
+        RenderSettings.ambientIntensity = 0f;
+
+        //find all light bulbs and turn them off
+        foreach (GameObject lightBulb in GameObject.FindGameObjectsWithTag("LightBulb"))
+        {
+            lightBulb.GetComponent<LightController>().TurnOff();
+            lightBulb.GetComponent<LightController>().DelayTurnOn();
+
+        }
+
+        //find player SpotLight and turn it on
+        //Debug.Log("turning on " + GameObject.Find("Flashlight"));
+        //GameObject.Find("Flashlight").GetComponent<Flashlight>().TurnOn();
+        
+
+
+    }
+
+    void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            ShutDown();
         }
     }
-    static GameController instance;
 
-    public bool exitHacked { get; private set; }
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    public void ExitHacked() {
-        if (exitHacked) return;
-        Debug.Log("EXIT IS NOW HACKED");
-        exitHacked = true;
-    }
 }

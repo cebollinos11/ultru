@@ -15,6 +15,9 @@ public class Interactable_HackTerminal : Interactable {
     }
     public override void DoInteractButtonDown() {
         base.DoInteractButtonDown();
+
+        Debug.Log("SHIT MAN");
+
         
     }
     public override void DoInteractButtonUp() {

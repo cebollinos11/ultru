@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423540}
   - 114: {fileID: 11420210}
+  - 114: {fileID: 11470796}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -23,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12091589, y: .121571541, z: -.510461688}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,6 +40,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fced5081a48cbb241b98e241fb2daf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11470796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1953a5afbfa0dc478660174fa75f41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  maxInteractionDistance: 100
+  currentSelection: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
