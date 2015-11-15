@@ -17,6 +17,7 @@ public class Interactable_HackTerminal : Interactable {
         base.DoInteractButtonDown();
 
         Debug.Log("SHIT MAN");
+        GameController.Instance.ShutDown();
 
         
     }
