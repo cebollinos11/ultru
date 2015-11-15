@@ -19,6 +19,9 @@ public class GameController : Singleton<GameController> {
             lightBulb.GetComponent<LightController>().TurnOff();
             lightBulb.GetComponent<LightController>().DelayTurnOn();
         }
+
+        ElevatorManager.ActivateElevator();
+
             StartCoroutine(doShutdown());
         
 
@@ -49,15 +52,13 @@ public class GameController : Singleton<GameController> {
     IEnumerator doShutdown() {
 
         if (isShutdown  && shutDownComplete)
-        {
-
-            
+        {           
 
             ////find player SpotLight and turn it on
             ////Debug.Log("turning on " + GameObject.Find("Flashlight"));
             ////GameObject.Find("Flashlight").GetComponent<Flashlight>().TurnOn();
 
-            Debug.Log("exiting coroutinr");
+            
 
             yield break;
         }
