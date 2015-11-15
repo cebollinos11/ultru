@@ -12,11 +12,14 @@ public class Player : MonoBehaviour {
         ioManager = GetComponent<InteractionManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         equippedWeapon = GetComponentInChildren<Weapon_Raygun>();
+        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(0)) {
+        //TODO: Change to mouse button
+        if (Input.GetKey(KeyCode.R)) {
             equippedWeapon.Fire();
         }
         else {
