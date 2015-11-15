@@ -23,4 +23,5 @@ public class Player : MonoBehaviour {
             equippedWeapon.StopFiring();
         }
 	}
+
 }

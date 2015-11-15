@@ -44,7 +44,7 @@ public class Weapon_Raygun : Weapon {
                 }
                 lineRenderer.SetVertexCount(2);
                 lineRenderer.SetPosition(0, _shootOrigin.position);
-                lineRenderer.SetPosition(1, hitinfo.point);
+                lineRenderer.SetPosition(1, hitinfo.point); 
             }
             chargeTimeTotal = 0;
         }
