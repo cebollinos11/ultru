@@ -54,7 +54,7 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 256
-  maxInteractionDistance: 100
+  maxInteractionDistance: 2
   currentSelection: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
