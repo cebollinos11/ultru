@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LightController : MonoBehaviour {
 
-    private float delayTurnOn = 2f; //2 sec delay
+    private float delayTurnOn = 10f; //2 sec delay
 
 	// Use this for initialization
 	void Start () {
