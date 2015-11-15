@@ -3,6 +3,19 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+    public enum Weapons {
+        Raygun = 0
+    }
+
+    [SerializeField] public struct TurretHardpoint {
+        public Transform hardpoint;
+        public Weapons weaponOnHardpoint;
+        public Weapon weapon;
+        public float cooldownRemaining;
+    }
+
+    [SerializeField] protected GameObject[] weaponPrefabs;
+    
     protected float playerLocationUpdateTime = 3;
     protected float viewRange = 20;
     protected float minDistanceToPlayer = 0.5f;
@@ -14,6 +27,7 @@ public class Enemy : MonoBehaviour {
     protected bool hasPlayerLOS;
     protected Vector3 originalLocation;
     protected Rigidbody rbody;
+    
 
     // Use this for initialization
     protected void Start () {
@@ -54,4 +68,8 @@ public class Enemy : MonoBehaviour {
         navAgent.destination = originalLocation;
     }
 
+    public void Hit(float damage) {
+        Debug.Log("Enemy was hit for " + damage + " dmg!");
+    }
+    
 }

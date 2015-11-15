@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
         ioManager = GetComponent<InteractionManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         equippedWeapon = GetComponentInChildren<Weapon_Raygun>();
+        equippedWeapon.teamToHit = GameController.Teams.Enemy;
         Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
 	}
@@ -22,9 +23,13 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.R)) {
             equippedWeapon.Fire();
         }
-        else {
+        else if (Input.GetKeyUp(KeyCode.R)) {
             equippedWeapon.StopFiring();
         }
 	}
+
+    public void Hit(float damage) {
+        Debug.Log("Player hit for " + damage + " dmg!");
+    }
 
 }

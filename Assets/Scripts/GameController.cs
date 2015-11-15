@@ -3,6 +3,11 @@ using System.Collections;
 
 public class GameController : Singleton<GameController> {
 
+    public enum Teams {
+        Player,
+        Enemy
+    }
+
     bool isShutdown;
     bool shutDownComplete;
     bool maxLightReached;

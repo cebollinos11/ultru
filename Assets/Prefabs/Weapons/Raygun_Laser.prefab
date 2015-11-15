@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1347dba5e77912458adb0c6df8b2729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decayTime: 1.5
+  decaySpeed: 1
   width: .5
 --- !u!114 &11481130
 MonoBehaviour:
@@ -120,6 +120,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: decaySpeed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
