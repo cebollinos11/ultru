@@ -6,7 +6,7 @@ public class Enemy_Orb : Enemy {
     [SerializeField] Transform[] _turretHardpoints;
     [SerializeField] Weapons[] _weaponsOnHardpoints;
     [SerializeField] float _playerLocationUpdateTime = 3;
-    [SerializeField] float _viewRange = 20;
+    [SerializeField] float _viewRange = 100;
     [SerializeField] float _minDistanceToPlayer = 0.5f;
 
     TurretHardpoint[] hardpoints;
@@ -40,14 +40,20 @@ public class Enemy_Orb : Enemy {
             navAgent.Resume();
         }
         if (chasing) {
+
+            if (hasPlayerLOS && !shooting) //added by pablo
+            {
+                shooting = true;
+            }
+
             if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < _minDistanceToPlayer) {
                 navAgent.Stop();
                 waiting = true;
                 rbody.velocity = Vector3.zero;
                 navAgent.destination = transform.position;
-                if (hasPlayerLOS && !shooting) {
-                    shooting = true;
-                }
+                //if (hasPlayerLOS && !shooting) {  //commented by pablo
+                //    shooting = true;
+                //}
             }
             else {
                 navAgent.destination = lastKnownPlayerLocation;

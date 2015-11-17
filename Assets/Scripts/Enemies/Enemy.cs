@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected GameObject[] weaponPrefabs;
     
     protected float playerLocationUpdateTime = 3;
-    protected float viewRange = 20;
+    protected float viewRange = 100;
     protected float minDistanceToPlayer = 0.5f;
 
     protected NavMeshAgent navAgent;

@@ -22,6 +22,8 @@ public class MapGenerator : MonoBehaviour {
 
     [SerializeField]
     GameObject hackTerminal;
+    [SerializeField]
+    GameObject Enemy;
 		
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
@@ -91,7 +93,22 @@ public class MapGenerator : MonoBehaviour {
     void PopulateRooms() { 
         
         //first of all add hackable servers
-        SpawnWhatWhere(rooms[Random.Range(0,rooms.Count-1)], hackTerminal);
+        int indexOfTerminal = Random.Range(0,rooms.Count-1);
+        int i;
+        for (i = 0; i < rooms.Count - 1; i++)
+        {
+            if (i == indexOfTerminal)
+            {
+                SpawnWhatWhere(rooms[i], hackTerminal);
+            }
+            else
+            {
+                SpawnWhatWhere(rooms[i], Enemy);
+            }
+
+        }
+        
+
         
 
 
