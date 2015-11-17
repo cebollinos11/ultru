@@ -124,17 +124,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 169484, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
-      propertyPath: m_Name
-      value: HPtag
+    - target: {fileID: 11440868, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11412396, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
+    - target: {fileID: 11440868, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11464270, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
+    - target: {fileID: 11440868, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f1c8208c8998bde4392ec4bcce5486fa,
+        type: 3}
+    - target: {fileID: 11440868, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0d451543ece5e843b483b655a4bd408, type: 2}
@@ -258,79 +263,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &947999486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 112202, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 947999487}
-  - 108: {fileID: 947999489}
-  - 114: {fileID: 947999488}
-  m_Layer: 0
-  m_Name: Flashlight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &947999487
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 440430, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947999486}
-  m_LocalRotation: {x: -.0397237539, y: -.0333483405, z: -.00132650777, w: .998653173}
-  m_LocalPosition: {x: .49000001, y: -1.84100008, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2046242364}
-  m_RootOrder: 1
---- !u!114 &947999488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947999486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bcff8380eaa574f9e1f36f8730839f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!108 &947999489
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 10881388, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947999486}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.4000001
-  m_Range: 62.9900017
-  m_SpotAngle: 60
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &1628514491
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,24 +527,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0616ac09a05ea54e81baa8031763765, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &2046242364 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 468466, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
-  m_PrefabInternal: {fileID: 761935437}
---- !u!1 &2049705208 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 110580, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
-  m_PrefabInternal: {fileID: 761935437}
---- !u!114 &2049705210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2049705208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91e3b951368006f48b4ddbeb5a5699ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 0
