@@ -6,6 +6,7 @@ public class GUIManager : Singleton<GUIManager> {
 
     public Text interactableLabelText;
     public Text Hp;
+    public UIFlash uiFlash;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,8 @@ public class GUIManager : Singleton<GUIManager> {
         else {
             Instance.Hp.color = Color.green;
         }
+
+        
         
     }
 }

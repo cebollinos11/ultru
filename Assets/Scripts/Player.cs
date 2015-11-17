@@ -6,9 +6,12 @@ public class Player : MonoBehaviour {
     InteractionManager ioManager;
     GameController gameController;
     Weapon equippedWeapon;
+    LifeManager lifeManager;
 
 	// Use this for initialization
 	void Start () {
+
+        lifeManager = GetComponent<LifeManager_Player>();
         ioManager = GetComponent<InteractionManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         equippedWeapon = GetComponentInChildren<Weapon_Raygun>();
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour {
 
     public void Hit(float damage) {
         Debug.Log("Player hit for " + damage + " dmg!");
+        lifeManager.ReceiveDamage((int)damage);
     }
 
 }

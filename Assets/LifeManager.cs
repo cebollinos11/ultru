@@ -3,14 +3,14 @@ using System.Collections;
 
 public class LifeManager : MonoBehaviour {
 
-    public int maxHP = 100;
-    public int currentHP;
+    protected int maxHP;
+    protected int currentHP;
 
 
 
 	// Use this for initialization
 	void Start () {
-        currentHP = maxHP;
+        
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,14 @@ public class LifeManager : MonoBehaviour {
         //play some hit particle system + sounds
         currentHP -= dmg;
 
+    }
+
+    public virtual void Heal(int dmg) {
+
+        currentHP += dmg;
+        if (currentHP > maxHP) {
+            currentHP = maxHP;
+        }
     }
 
 }
