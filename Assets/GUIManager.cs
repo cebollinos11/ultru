@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GUIManager : Singleton<GUIManager> {
 
     public Text interactableLabelText;
+    public Text Hp;
 
 	// Use this for initialization
 	void Start () {
@@ -17,4 +18,17 @@ public class GUIManager : Singleton<GUIManager> {
 	void Update () {
 	
 	}
+
+    public static void SetHP(int str)
+    {
+        Instance.Hp.text = str.ToString();
+        if (str < 31)
+        {
+            Instance.Hp.color = Color.red;
+        }
+        else {
+            Instance.Hp.color = Color.green;
+        }
+        
+    }
 }
