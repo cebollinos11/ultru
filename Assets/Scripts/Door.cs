@@ -6,21 +6,37 @@ public class Door : MonoBehaviour {
 	[SerializeField] Animation doorAnim;
 	public Transform zero;
 
-    AudioSource myAudioSource;
+    AudioSource[] myAudioSource;
+    int peopleOnCollider = 0;
 
     void Start() {
-        myAudioSource = GetComponent<AudioSource>();
+        myAudioSource = GetComponents<AudioSource>();
     }
     
 
 	void OnTriggerEnter (Collider col) {
-        GetComponentInParent<Animator>().SetBool("PlayerNearby", true);
-        if (!myAudioSource.isPlaying)
-            myAudioSource.Play();
+
+        peopleOnCollider++;
+
+        if (peopleOnCollider == 1)
+        {
+            GetComponentInParent<Animator>().SetBool("PlayerNearby", true);
+            if (!myAudioSource[0].isPlaying)
+                myAudioSource[0].Play();
+        }
+
+        
 	}
 	
 	void OnTriggerExit (Collider obj) {
-        GetComponentInParent<Animator>().SetBool("PlayerNearby", false);
+        peopleOnCollider--;
+        if (peopleOnCollider == 0)
+        {
+            GetComponentInParent<Animator>().SetBool("PlayerNearby", false);
+            if (!myAudioSource[1].isPlaying)
+                myAudioSource[1].Play();
+        }
+        
     }
 
 	public void SetDoorVisibility (bool isVisible) {
