@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11466860}
   - 114: {fileID: 11484450}
   - 136: {fileID: 13657762}
+  - 96: {fileID: 9635716}
   m_Layer: 0
   m_Name: Blaster_Laser
   m_TagString: Untagged
@@ -63,6 +64,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136200}
   m_Mesh: {fileID: 0}
+--- !u!96 &9635716
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136200}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .100000001
+  m_StartWidth: 1
+  m_EndWidth: 1
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11466860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,10 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startPos: {x: 0, y: 0, z: 0}
-  m_endPos: {x: 0, y: 0, z: 2}
+  m_endPos: {x: 0, y: 0, z: 10}
   m_setLinePropertiesAtStart: 1
   m_lineColor: {r: 1, g: 0, b: 0, a: 1}
-  m_lineWidth: 2
+  m_lineWidth: 4
 --- !u!114 &11484450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9861cd22065aee2448696dde258b8aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 60
 --- !u!136 &13657762
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -117,7 +163,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: moveSpeed
-      value: 20
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Time
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
