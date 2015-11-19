@@ -1,64 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &193566
+--- !u!1 &112150
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 490182}
-  - 114: {fileID: 11494730}
+  - 4: {fileID: 450318}
+  - 114: {fileID: 11471888}
+  - 114: {fileID: 11497340}
   m_Layer: 0
-  m_Name: Map Generator
+  m_Name: MapGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &490182
+--- !u!4 &450318
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193566}
+  m_GameObject: {fileID: 112150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11494730
+--- !u!114 &11471888
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193566}
+  m_GameObject: {fileID: 112150}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee7369138b146cb4faef102bb560f77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRooms: 4
+  maxRooms: 20
   spawnRoomPrefab: {fileID: 154476, guid: c9e1e7b634fa6604e95d2150b84a75f5, type: 2}
-  exitRoomPrefab: {fileID: 177274, guid: e8ee26d38b2ea284fbab1df5876471b4, type: 2}
+  exitRoomPrefab: {fileID: 154476, guid: fa3628e8a6a42b1428bad48a155552e6, type: 2}
   doorPrefab: {fileID: 100000, guid: cfef738579cd02c40b3b1d63e67b0f84, type: 2}
   blockedDoorPrefab: {fileID: 100000, guid: 14ad492547932444ba9aa29a85c343ac, type: 2}
-  maxSpawnAttempts: 10
-  noDoorProbabilityPercent: 35
+  maxSpawnAttempts: 3
+  noDoorProbabilityPercent: 10
   hackTerminal: {fileID: 127192, guid: b7cd27728d4600a469909c25993446d7, type: 2}
-  floorTexture: {fileID: 2800000, guid: 30d15104a72b81c43956995b4a3e12ad, type: 3}
-  floorNormalMap: {fileID: 2800000, guid: e3afed1118ab7f249bccd2e0e44f10e1, type: 3}
-  wallTexture: {fileID: 2800000, guid: 33322eac76f79eb48a8a95610daffbb6, type: 3}
-  wallNormalMap: {fileID: 2800000, guid: 46ede4dc27fc6bc4caa23c40f00467d8, type: 3}
+  Enemy: {fileID: 153512, guid: 2ea7a75eb5ffd774583d6f58eb716c59, type: 2}
+--- !u!114 &11497340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a5932143833e043be55d4c51d23d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallDecorationProb: 50
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: WallDecorationProb
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 193566}
+  m_RootGameObject: {fileID: 112150}
   m_IsPrefabParent: 1
