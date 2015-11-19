@@ -7,9 +7,15 @@ public class Weapon : MonoBehaviour {
         
     }
 
-    protected Transform shootOrigin;
+    public enum Weapons {
+        Nothing = -1,
+        Raygun = 0,
+        Blaster = 1
+    }
+
+    protected Transform[] shootOrigin;
     protected int ammoCostPerShot = 0;
-    protected float damage = 0;
+    protected int damage = 0;
     protected float fireRate = 1;
     protected float fireRateCooldown = 0;
     protected float range = float.MaxValue;

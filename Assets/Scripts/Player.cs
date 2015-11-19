@@ -3,8 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+    [SerializeField] Transform hand;
+
     InteractionManager ioManager;
     GameController gameController;
+    public Weapon.Weapons weaponInHand;
     Weapon equippedWeapon;
     LifeManager lifeManager;
 
@@ -13,10 +16,11 @@ public class Player : MonoBehaviour {
 
         lifeManager = GetComponent<LifeManager_Player>();
         ioManager = GetComponent<InteractionManager>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        equippedWeapon = GetComponentInChildren<Weapon_Raygun>();
-        equippedWeapon.teamToHit = GameController.Teams.Enemy;
-        Cursor.lockState = CursorLockMode.Locked;
+        gameController = GameController.Instance;
+
+        EquipWeapon(weaponInHand);
+
+        //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
 	}
 	
@@ -24,10 +28,12 @@ public class Player : MonoBehaviour {
 	void Update () {
         //TODO: Change to mouse button
         if (Input.GetKey(KeyCode.R)) {
-            equippedWeapon.Fire();
+            if (equippedWeapon != null)
+                equippedWeapon.Fire();
         }
         else if (Input.GetKeyUp(KeyCode.R)) {
-            equippedWeapon.StopFiring();
+            if (equippedWeapon != null)
+                equippedWeapon.StopFiring();
         }
 	}
 
@@ -36,4 +42,31 @@ public class Player : MonoBehaviour {
         lifeManager.ReceiveDamage((int)damage);
     }
 
+    public void EquipWeapon(Weapon.Weapons weaponToEquip) {
+        if (weaponToEquip == Weapon.Weapons.Nothing) {
+            Transform temp = hand.GetChild(0);
+            if (temp != null) Destroy(temp.gameObject);
+            equippedWeapon = null;
+        }
+        else {
+            GameObject prefabToSpawn = gameController.weaponPrefabs[(int)weaponToEquip];
+            GameObject newWeapon = Instantiate(prefabToSpawn, Vector3.zero, hand.rotation) as GameObject;
+            newWeapon.transform.parent = hand;
+            newWeapon.transform.localPosition = Vector3.zero;
+            newWeapon.transform.localRotation = hand.localRotation;
+
+            switch ((int)weaponToEquip) {
+                //Raygun
+                case 0:
+                    equippedWeapon = GetComponentInChildren<Weapon_Raygun>();
+                    break;
+                //Blaster
+                case 1:
+                    equippedWeapon = GetComponentInChildren<Weapon_Blaster>();
+                    break;
+            }
+            equippedWeapon.teamToHit = GameController.Teams.Enemy;
+        }
+
+    }
 }

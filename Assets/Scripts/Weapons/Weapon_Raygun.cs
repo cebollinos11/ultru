@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Weapon_Raygun : Weapon {
 
-    [SerializeField] float _damage = 10;
+    [SerializeField] int _damage = 10;
     [SerializeField] int _ammoCostPerShot = 0;
     [SerializeField] float _fireRate = 2;
     [SerializeField] float _range = float.MaxValue;
-    [SerializeField] Transform _shootOrigin;
+    [SerializeField] Transform[] _shootOrigin;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] Color laserColor;
     [SerializeField] Transform chargeSphere;
@@ -62,7 +62,7 @@ public class Weapon_Raygun : Weapon {
 	}
 
     void Hitcheck() {
-        Ray ray = new Ray(shootOrigin.position, shootOrigin.forward);
+        Ray ray = new Ray(shootOrigin[0].position, shootOrigin[0].forward);
         RaycastHit hitinfo;
         if (Physics.Raycast(ray, out hitinfo, range)) {
             if (teamToHit == GameController.Teams.Enemy) {
@@ -80,7 +80,7 @@ public class Weapon_Raygun : Weapon {
 
         }
         chargeTotal = 0;
-        GameObject laser = Instantiate(laserPrefab, _shootOrigin.position, _shootOrigin.rotation) as GameObject;
+        GameObject laser = Instantiate(laserPrefab, shootOrigin[0].position, shootOrigin[0].rotation) as GameObject;
         laser.GetComponent<Raygun_Laser>().Initialize(Vector3.zero, hitinfo.point, laserColor);
     }
 

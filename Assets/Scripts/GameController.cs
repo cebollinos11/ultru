@@ -8,6 +8,8 @@ public class GameController : Singleton<GameController> {
         Enemy
     }
 
+    [SerializeField] public GameObject[] weaponPrefabs;
+
     bool isShutdown;
     bool shutDownComplete;
     bool maxLightReached;

@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy_Orb : Enemy {
 
     [SerializeField] Transform[] _turretHardpoints;
-    [SerializeField] Weapons[] _weaponsOnHardpoints;
+    [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
     [SerializeField] float _playerLocationUpdateTime = 3;
     [SerializeField] float _viewRange = 100;
     [SerializeField] float _minDistanceToPlayer = 0.5f;

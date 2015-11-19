@@ -3,13 +3,10 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-    public enum Weapons {
-        Raygun = 0
-    }
 
     [SerializeField] public struct TurretHardpoint {
         public Transform hardpoint;
-        public Weapons weaponOnHardpoint;
+        public Weapon.Weapons weaponOnHardpoint;
         public Weapon weapon;
         public float cooldownRemaining;
     }
