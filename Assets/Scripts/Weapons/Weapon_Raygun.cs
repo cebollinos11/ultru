@@ -14,6 +14,8 @@ public class Weapon_Raygun : Weapon {
     [SerializeField] float chargeSphereRotationSpeed = 0.2f;
     [SerializeField] float chargeSphereMaxSize = 2f;
     [SerializeField] float _chargeTime = 2;
+
+    AudioSource chargeSound;
     
     Material chargeMat;
     MeshRenderer meshRenderer; 
@@ -29,6 +31,8 @@ public class Weapon_Raygun : Weapon {
         meshRenderer = chargeSphere.GetComponent<MeshRenderer>();
         chargeMat = meshRenderer.material;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        chargeSound = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -38,6 +42,9 @@ public class Weapon_Raygun : Weapon {
             StopFiring();
         }
 	    if (isFiring) {
+            if (chargeTotal == 0) {
+                AudioSource.PlayClipAtPoint(chargeSound.clip,transform.position);
+            }
             chargeTotal += Time.deltaTime;
             float currentPercent = (chargeSphereMaxSize / chargeTime) * chargeTotal;
             chargeMat.SetFloat("_LineWidth", currentPercent);
