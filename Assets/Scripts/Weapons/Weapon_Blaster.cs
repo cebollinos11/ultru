@@ -9,6 +9,8 @@ public class Weapon_Blaster : Weapon {
     [SerializeField] Transform[] _shootOrigin;
     [SerializeField] GameObject laserShotPrefab;
     [SerializeField] Color laserColor;
+    AudioSource bulletSound;
+    
 
     struct GunBarrel {
         public Transform barrelEnd;
@@ -32,6 +34,8 @@ public class Weapon_Blaster : Weapon {
         barrel2.cooldownRemaining = fireRate/2;
         barrels = new GunBarrel[] {barrel1, barrel2};
 
+        bulletSound = GetComponent<AudioSource>();
+
     }
 	
 	// Update is called once per frame
@@ -48,6 +52,7 @@ public class Weapon_Blaster : Weapon {
                     Blaster_Laser blaser = laser.GetComponent<Blaster_Laser>();
                     blaser.Initialize(laserColor, damage, teamToHit);
                     barrels[i].cooldownRemaining = fireRate;
+                    bulletSound.Play();
                 }
             }
         }
