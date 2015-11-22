@@ -29,6 +29,19 @@ public class CeilingBuilder : MonoBehaviour {
         //    for (i = 1; i < sx-1;i++ )
         //        PlaceLight(instance.transform.position+new Vector3(i-sx/2,0,j-sz/2)*10, instance.transform.parent);
         PlaceLight(instance.transform.position, instance.transform.parent);
+
+
+        //Place mini map
+
+        GameObject rminstance = Instantiate(Resources.Load("mapgen/roomParts/RoomMinimap", typeof(GameObject))) as GameObject;
+        rminstance.transform.position = transform.position + new Vector3(0, 0, 0);
+        rminstance.transform.localScale = transform.localScale;
+        rminstance.transform.rotation = transform.rotation;
+        //rminstance.transform.Rotate(0, 0, 180, Space.Self);
+
+        rminstance.transform.parent = transform.parent;
+        rminstance.transform.name = "Ceiling_minimap";
+
 	    
 	}
 

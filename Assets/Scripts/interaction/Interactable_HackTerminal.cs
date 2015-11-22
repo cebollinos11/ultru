@@ -29,9 +29,10 @@ public class Interactable_HackTerminal : Interactable {
     private void disableTerminal(){
 
        
-        for (int i = 0; i < transform.parent.childCount; i++)
+        for (int i = 1; i < transform.parent.childCount; i++)
         {
-            transform.parent.GetChild(i).gameObject.layer = 0;
+           
+                transform.parent.GetChild(i).gameObject.layer = 0;
         }
     
     }
