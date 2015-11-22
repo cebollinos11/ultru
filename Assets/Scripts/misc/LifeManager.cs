@@ -6,23 +6,18 @@ public class LifeManager : MonoBehaviour {
     protected int maxHP;
     protected int currentHP;
 
-
-
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    public virtual void Init(int maxHP) {
+        this.maxHP = maxHP;
+        currentHP = maxHP;
+    }
+    
     public virtual void ReceiveDamage(int dmg) { 
     
         //play some hit particle system + sounds
         currentHP -= dmg;
-
+        if (currentHP <= 0) {
+            Destroy(gameObject);
+        }
     }
 
     public virtual void Heal(int dmg) {

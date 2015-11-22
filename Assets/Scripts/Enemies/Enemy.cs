@@ -17,7 +17,8 @@ public class Enemy : MonoBehaviour {
     }
 
     [SerializeField] protected GameObject[] weaponPrefabs;
-    
+    [SerializeField] protected int maxHp = 100;
+
     protected float playerLocationUpdateTime = 3;
     protected float viewRange = 100;
 
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour {
     protected Rigidbody rbody;
     protected bool isShooting;
     protected enemySurfacePlacement placedOnSurface;
+    protected LifeManager lifeManager;
 
     RaycastHit hit;
 
@@ -38,6 +40,8 @@ public class Enemy : MonoBehaviour {
         navAgent = GetComponent<NavMeshAgent>();
         originalLocation = transform.position;
         rbody = GetComponent<Rigidbody>();
+        lifeManager = GetComponent<LifeManager>();
+        lifeManager.Init(maxHp);
 	}
 	
 	// Update is called once per frame

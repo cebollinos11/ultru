@@ -75,6 +75,7 @@ GameObject:
   - 195: {fileID: 19520040}
   - 54: {fileID: 5415156}
   - 114: {fileID: 11435910}
+  - 114: {fileID: 11433406}
   m_Layer: 11
   m_Name: Enemy_Orb
   m_TagString: Untagged
@@ -252,6 +253,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11433406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcda65208e319274b83d6f89217155c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11435910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefabs:
   - {fileID: 112784, guid: f6848f138595fe146b14f40558c8b395, type: 2}
+  maxHp: 100
   _turretHardpoints:
   - {fileID: 493458}
   - {fileID: 457106}
