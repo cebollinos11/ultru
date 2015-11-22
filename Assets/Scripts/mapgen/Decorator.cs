@@ -39,7 +39,7 @@ public class Decorator : MonoBehaviour {
             
             //PaintRoom(k.Value.transform);
             Transform wallPack = k.Value.transform.FindChild("Walls");
-            Debug.Log("decorating " + k.Value.name+ " "+wallPack);
+            //Debug.Log("decorating " + k.Value.name+ " "+wallPack);
             if (wallPack == null) { return; }
             foreach (Transform child in wallPack)
             {

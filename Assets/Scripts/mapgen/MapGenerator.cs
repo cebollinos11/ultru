@@ -29,20 +29,17 @@ public class MapGenerator : MonoBehaviour {
 
     Decorator decorator;
 
+    Transform CurrentSpaceStation;
+
 
 
 
 
 	// Use this for initialization
 	void Start () {
-		locations = new Dictionary<int, GameObject>();
-		roomConnections = new Dictionary<Transform, Transform>();
-		unusedDoorways = new List<Transform>();
-        closedDoorways = new List<Transform>();
-		roomsDB = Resources.LoadAll("mapgen/rooms");
-		hallwaysDB = Resources.LoadAll("mapgen/hallways");
 
-        decorator = GetComponent<Decorator>();
+        Random.seed =  Random.Range(0, 1000);
+        Debug.Log("Seed used: "+ Random.seed.ToString());
 
 		GenerateMap();
         AudioManager.PlayBgSong(0);
@@ -53,20 +50,35 @@ public class MapGenerator : MonoBehaviour {
 	}
 	
 	void GenerateMap() {
-        Debug.Log("Generating spawn room");
+        Debug.Log("*** Starting Generate Map ***");
 
-        foreach (KeyValuePair<int, GameObject> k in locations)
-        {
-            GameObject.Destroy(k.Value);
-        }
-        
+        var go = new GameObject();
+        go.name = "Space Station"+Random.Range(0,100).ToString();
+        CurrentSpaceStation = go.transform;
+        //Instantiate(go, Vector3.zero, Quaternion.identity);
+
+
+
+
+        //foreach (KeyValuePair<int, GameObject> k in locations)
+        //{
+        //    GameObject.Destroy(k.Value);
+        //}
+
+
         locations = new Dictionary<int, GameObject>();
-		unusedDoorways = new List<Transform>();
+        roomConnections = new Dictionary<Transform, Transform>();
+        unusedDoorways = new List<Transform>();
+        closedDoorways = new List<Transform>();
+        roomsDB = Resources.LoadAll("mapgen/rooms");
         rooms = new List<Transform>();
+        hallwaysDB = Resources.LoadAll("mapgen/hallways");
+        decorator = GetComponent<Decorator>();        
 		roomCounter = 0;
 
 
 		GameObject spawnedRoom = (GameObject)Instantiate(spawnRoomPrefab, Vector3.zero, Quaternion.identity);
+        spawnedRoom.transform.parent = CurrentSpaceStation;
 		Room room = spawnedRoom.GetComponent<Room>();
 		locations.Add(roomCounter, spawnedRoom);
 
@@ -77,7 +89,7 @@ public class MapGenerator : MonoBehaviour {
 
         Debug.Log("Spawning in random rooms");
 		for (int i = roomCounter; i < maxRooms; i++) {
-			AttemptSpawnRoom();
+			AttemptSpawnRoom(i);
 		}
 		PlaceExit();
 		PlaceDoors();
@@ -131,22 +143,26 @@ public class MapGenerator : MonoBehaviour {
         
     }
 
-	void AttemptSpawnRoom() {
+	void AttemptSpawnRoom(int i) {
 		Transform newExit = GetUnusedExit();
 		GameObject newRoom = SpawnRoom(newExit.parent.transform, newExit, (GameObject)roomsDB[Random.Range(0, roomsDB.Length)], roomCounter);
+        Debug.Log(newRoom+ "***");
 		int tryCounter = 0;
 		while (newRoom == null && tryCounter < maxSpawnAttempts) {
 			GameObject.Destroy(newRoom);
 			newRoom = SpawnRoom(newExit.parent.transform, newExit, (GameObject)roomsDB[Random.Range(0, roomsDB.Length)], roomCounter);
-			tryCounter++;
+            Debug.Log(newRoom + "*X*");
+            if(newRoom==null)
+			    tryCounter++;
 		}
 		if (tryCounter >= maxSpawnAttempts) {
 			//newExit.GetComponent<MeshRenderer>().enabled = false;
 			if (unusedDoorways.Count > 0 ) {
-				AttemptSpawnRoom();
+				AttemptSpawnRoom(i);
 				return;
 			}
 			foreach (KeyValuePair<int, GameObject> k in locations) {
+                Debug.Log("SOME ROOM WAS DESTROYED -> " + k.Value.ToString());
 				GameObject.Destroy(k.Value);
 			}
 			GenerateMap();
@@ -175,10 +191,12 @@ public class MapGenerator : MonoBehaviour {
 		}
 		if (tryCounter >= maxSpawnAttempts) {
 			//newExit.GetComponent<MeshRenderer>().enabled = false;
-			if (unusedDoorways.Count > 0 ) {
-				AttemptSpawnRoom();
-				return;
-			}
+            if (unusedDoorways.Count > 0)
+            {
+                Debug.Log("FORGETTING ABOUT THE EXIT");
+                //AttemptSpawnRoom();
+                //return;
+            }
 			foreach (KeyValuePair<int, GameObject> k in locations) {
 				GameObject.Destroy(k.Value);
 			}
@@ -188,6 +206,8 @@ public class MapGenerator : MonoBehaviour {
 			locations.Add(roomCounter, newRoom);
 			roomCounter++;
 		}
+
+        Debug.Log("Created -> "+newRoom.name);
 	}
 	
 	Transform GetUnusedExit() {
@@ -199,29 +219,38 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	GameObject SpawnRoom(Transform oldRoom, Transform entrance, GameObject selectedRoom, int key) {
- 		selectedRoom = (GameObject)Instantiate(selectedRoom, Vector3.zero, Quaternion.identity);
+ 		selectedRoom = (GameObject)Instantiate(selectedRoom, Vector3.zero, Quaternion.identity); 
+        
+
+
 		Room room = selectedRoom.GetComponent<Room>();
 		List<Transform> temp = room.doorways;
 		int i = Random.Range(0, temp.Count-1);
 		Transform selectedDoorway = temp[i];
 		temp.RemoveAt(i);
 
-		ConnectRooms(oldRoom, entrance, selectedRoom.transform, selectedDoorway);
-		entrance.gameObject.name = key.ToString();
-		selectedDoorway.gameObject.name = key.ToString();
+        ConnectRooms(oldRoom, entrance, selectedRoom.transform, selectedDoorway);
+        entrance.gameObject.name = key.ToString();
+        selectedDoorway.gameObject.name = key.ToString();
 
-		Bounds newBounds = selectedRoom.GetComponent<BoxCollider>().bounds;
-		bool doesIntersect = false;
-		foreach (KeyValuePair<int, GameObject> k in locations) {
-			Bounds otherBounds = k.Value.GetComponent<BoxCollider>().bounds;
-			doesIntersect = newBounds.Intersects(otherBounds);
-			if (doesIntersect) break;
-		}
+        
 
-		if (doesIntersect) {
-			GameObject.Destroy(selectedRoom);
-			return null;
-		}
+        Bounds newBounds = selectedRoom.GetComponent<BoxCollider>().bounds;
+        bool doesIntersect = false;
+        foreach (KeyValuePair<int, GameObject> k in locations)
+        {
+            Bounds otherBounds = k.Value.GetComponent<BoxCollider>().bounds;
+            doesIntersect = newBounds.Intersects(otherBounds);
+            if (doesIntersect) break;
+        }
+
+        Debug.Log("Spawning -> " + selectedRoom.name + " " + selectedRoom.transform.position.ToString() + " does intersect:" + doesIntersect + " connects to " + selectedDoorway.transform.position.ToString());
+
+        if (doesIntersect)
+        {
+            GameObject.Destroy(selectedRoom);
+            return null;
+        }	
 		
 		//entrance.GetComponent<MeshRenderer>().enabled = false;
 		//selectedDoorway.GetComponent<MeshRenderer>().enabled = false;
@@ -229,6 +258,7 @@ public class MapGenerator : MonoBehaviour {
 		room.connections.Add(entrance, selectedDoorway);
 		entrance.parent.GetComponent<Room>().connections.Add(selectedDoorway, entrance);
 		unusedDoorways.AddRange(temp);
+        selectedRoom.transform.parent = CurrentSpaceStation;
 		return selectedRoom;
 	}
 
@@ -244,10 +274,12 @@ public class MapGenerator : MonoBehaviour {
 		Debug.Log("Placing exit room"); 
 		Transform newExit = GetUnusedExit();
 		AttemptSpawnRoom(newExit.parent.transform, newExit, exitRoomPrefab, roomCounter);
+
+        
 	}
 
 	void PlaceDoors() {
-		Debug.Log("Placing doors in open doorways");
+		//Debug.Log("Placing doors in open doorways");
 		foreach (KeyValuePair<Transform, Transform> k in roomConnections) {
 			GameObject door = (GameObject) GameObject.Instantiate(doorPrefab, k.Key.position - ((k.Value.position - k.Key.position) / 2), k.Key.rotation);
 			door.transform.position += door.transform.position - door.GetComponentInChildren<Door>().zero.position;
@@ -287,6 +319,7 @@ public class MapGenerator : MonoBehaviour {
                     GameObject blockedDoor = (GameObject)GameObject.Instantiate(blockedDoorPrefab, t.position, t.rotation);
                     Transform doorZero = blockedDoor.transform.FindChild("Zero");
                     blockedDoor.transform.position += blockedDoor.transform.position - doorZero.position;
+                    blockedDoor.transform.parent = k.Value.transform;
                 }
             }
         }

@@ -14,12 +14,12 @@ public class Presetter : MonoBehaviour {
         int nPresets = transform.childCount;
         int chosenIndex = Random.Range(0, nPresets);
 
-        Debug.Log(chosenIndex);
+        
 
         foreach (Transform spawner in transform.GetChild(chosenIndex)) {
 
-            Instantiate(prefabsDB[Random.Range(0, prefabsDB.Length)], spawner.position, spawner.rotation);
-        
+            GameObject go = (GameObject)Instantiate(prefabsDB[Random.Range(0, prefabsDB.Length)], spawner.position, spawner.rotation);
+            go.transform.parent = transform.parent;
         }
 
         //foreach (Transform t in listOfPresets) {
