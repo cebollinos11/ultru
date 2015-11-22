@@ -45,6 +45,7 @@ public class MapGenerator : MonoBehaviour {
         decorator = GetComponent<Decorator>();
 
 		GenerateMap();
+        AudioManager.PlayBgSong(0);
 	}
 	
 	// Update is called once per frame

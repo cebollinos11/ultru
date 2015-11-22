@@ -44,6 +44,7 @@ public class Weapon_Raygun : Weapon {
 	    if (isFiring) {
             if (chargeTotal == 0) {
                 AudioSource.PlayClipAtPoint(chargeSound.clip,transform.position);
+                //chargeSound.Play();
             }
             chargeTotal += Time.deltaTime;
             float currentPercent = (chargeSphereMaxSize / chargeTime) * chargeTotal;

@@ -52,6 +52,7 @@ public class Weapon_Blaster : Weapon {
                     Blaster_Laser blaser = laser.GetComponent<Blaster_Laser>();
                     blaser.Initialize(laserColor, damage, teamToHit);
                     barrels[i].cooldownRemaining = fireRate;
+                    //bulletSound.PlayOneShot(bulletSound.clip);
                     bulletSound.Play();
                 }
             }
