@@ -64,7 +64,6 @@ public class Blaster_Laser : MonoBehaviour {
                 lifeMan.ReceiveDamage(damage);
             }
         }
-        Debug.Log(col.gameObject.name);
         Destroy(gameObject);
 
     }

@@ -9,7 +9,7 @@ public class Door : MonoBehaviour {
     AudioSource[] myAudioSource;
     int peopleOnCollider = 0;
 
-    void Start() {
+    void Awake() {
         myAudioSource = GetComponents<AudioSource>();
     }
     

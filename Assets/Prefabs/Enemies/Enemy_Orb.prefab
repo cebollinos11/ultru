@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 483146}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretHardpointTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 416614}
   - 108: {fileID: 10804528}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493458}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretHardpointW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretHardpointE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - 195: {fileID: 19520040}
   - 54: {fileID: 5415156}
   - 114: {fileID: 11435910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 447406}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurretHardpointN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,6 +340,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

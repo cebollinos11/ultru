@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
     protected float viewRange = 100;
 
     protected NavMeshAgent navAgent;
-    protected float rayCastTimerRemaining = 0;
+    protected float rayCastTimerRemaining = 1;
     protected Vector3 lastKnownPlayerLocation;
     protected Player player;
     protected bool hasPlayerLOS;
@@ -30,7 +30,8 @@ public class Enemy : MonoBehaviour {
     protected Rigidbody rbody;
     protected bool isShooting;
     protected enemySurfacePlacement placedOnSurface;
-    
+
+    RaycastHit hit;
 
     // Use this for initialization
     protected virtual void Start () {
@@ -54,9 +55,11 @@ public class Enemy : MonoBehaviour {
 	}
 
     void CheckForPlayerLOS() {
-        Ray ray = new Ray(transform.position, player.transform.position - transform.position);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, viewRange)) {
+        int layerMask = 1 << 11;
+        layerMask = ~layerMask;
+        Ray ray = new Ray(transform.position, (player.transform.position - transform.position).normalized);
+        //RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, viewRange, layerMask)) {
             if (hit.transform.tag == "Player") {
                 lastKnownPlayerLocation = hit.transform.position;
                 hasPlayerLOS = true;
@@ -73,6 +76,13 @@ public class Enemy : MonoBehaviour {
 
     public void Hit(float damage) {
         Debug.Log("Enemy was hit for " + damage + " dmg!");
+        
+    }
+
+    void OnDrawGizmos() {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, hit.point);
+        Gizmos.DrawSphere(hit.point, 1);
     }
     
 }
