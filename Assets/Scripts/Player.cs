@@ -66,6 +66,9 @@ public class Player : MonoBehaviour {
                     break;
             }
             equippedWeapon.teamToHit = GameController.Teams.Enemy;
+            foreach (Transform t in newWeapon.GetComponentsInChildren<Transform>()) {
+                t.gameObject.layer = LayerMask.NameToLayer("Weapon");
+            }
         }
 
     }

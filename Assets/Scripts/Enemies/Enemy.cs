@@ -52,6 +52,8 @@ public class Enemy : MonoBehaviour {
             rayCastTimerRemaining -= Time.deltaTime;
         }
         //Debug.Log(lastKnownPlayerLocation);
+
+
 	}
 
     void CheckForPlayerLOS() {
