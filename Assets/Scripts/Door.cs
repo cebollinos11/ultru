@@ -15,7 +15,7 @@ public class Door : MonoBehaviour {
     
 
 	void OnTriggerEnter (Collider col) {
-
+        if (col.isTrigger) return;
         peopleOnCollider++;
 
         if (peopleOnCollider == 1)
@@ -28,7 +28,8 @@ public class Door : MonoBehaviour {
         
 	}
 	
-	void OnTriggerExit (Collider obj) {
+	void OnTriggerExit (Collider col) {
+        if (col.isTrigger) return;
         peopleOnCollider--;
         if (peopleOnCollider == 0)
         {

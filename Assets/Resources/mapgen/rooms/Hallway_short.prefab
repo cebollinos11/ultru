@@ -625,6 +625,10 @@ Prefab:
       propertyPath: doorways.Array.data[1]
       value: 
       objectReference: {fileID: 462754}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 176688}

@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+    public enum enemySurfacePlacement {
+        Floor,
+        Celling,
+        Wall
+    }
 
     [SerializeField] public struct TurretHardpoint {
         public Transform hardpoint;
@@ -15,7 +20,6 @@ public class Enemy : MonoBehaviour {
     
     protected float playerLocationUpdateTime = 3;
     protected float viewRange = 100;
-    protected float minDistanceToPlayer = 0.5f;
 
     protected NavMeshAgent navAgent;
     protected float rayCastTimerRemaining = 0;
@@ -24,17 +28,19 @@ public class Enemy : MonoBehaviour {
     protected bool hasPlayerLOS;
     protected Vector3 originalLocation;
     protected Rigidbody rbody;
+    protected bool isShooting;
+    protected enemySurfacePlacement placedOnSurface;
     
 
     // Use this for initialization
-    protected void Start () {
+    protected virtual void Start () {
         navAgent = GetComponent<NavMeshAgent>();
         originalLocation = transform.position;
         rbody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
-	protected void Update () {
+	protected virtual void Update () {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (rayCastTimerRemaining <= 0) {

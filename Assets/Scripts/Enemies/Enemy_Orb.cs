@@ -4,49 +4,53 @@ using System.Collections;
 public class Enemy_Orb : Enemy {
 
     [SerializeField] Transform[] _turretHardpoints;
-    [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
     [SerializeField] float _playerLocationUpdateTime = 3;
     [SerializeField] float _viewRange = 100;
-    [SerializeField] float _minDistanceToPlayer = 0.5f;
+
+    [SerializeField] float minDistanceToPlayer = 0.5f;
 
     TurretHardpoint[] hardpoints;
     bool chasing;
     bool waiting;
-    bool shooting;
+
+
+    //For testing - To remove
+    [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
+
+
     // Use this for initialization
-    new void Start () {
+    protected override void Start () {
         base.Start();
         base.playerLocationUpdateTime = _playerLocationUpdateTime;
         base.viewRange = _viewRange;
-        base.minDistanceToPlayer = _minDistanceToPlayer;
         hardpoints = new TurretHardpoint[_turretHardpoints.Length];
 
         //For testing. Should be run by MapGenerator.
-        SpawnTurrets(4);
+        SpawnTurrets(4, _weaponsOnHardpoints);
 	}
 	
 	// Update is called once per frame
-	new void Update () {
+	protected override void Update () {
         base.Update();
         if (!hasPlayerLOS) {
-            shooting = false;
+            isShooting = false;
         }
-        else if (hasPlayerLOS && !shooting) { 
+        else if (hasPlayerLOS && !isShooting) { 
             transform.LookAt(player.transform);
         }
-        if (hasPlayerLOS && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) > _minDistanceToPlayer && (!chasing || waiting)) {
+        if (hasPlayerLOS && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) > minDistanceToPlayer && (!chasing || waiting)) {
             chasing = true;
             waiting = false;
             navAgent.Resume();
         }
         if (chasing) {
 
-            if (hasPlayerLOS && !shooting) //added by pablo
+            if (hasPlayerLOS && !isShooting) //added by pablo
             {
-                shooting = true;
+                isShooting = true;
             }
 
-            if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < _minDistanceToPlayer) {
+            if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < minDistanceToPlayer) {
                 navAgent.Stop();
                 waiting = true;
                 rbody.velocity = Vector3.zero;
@@ -59,14 +63,14 @@ public class Enemy_Orb : Enemy {
                 navAgent.destination = lastKnownPlayerLocation;
             }
         }
-        if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < _minDistanceToPlayer && !hasPlayerLOS && chasing) {
+        if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < minDistanceToPlayer && !hasPlayerLOS && chasing) {
             chasing = false;
             waiting = false;
             GoHome();
             navAgent.Resume();
         }
 
-        if (shooting) {
+        if (isShooting) {
             navAgent.Stop();
             foreach (TurretHardpoint t in hardpoints) {
                 t.weapon.AutoFire();
@@ -82,14 +86,14 @@ public class Enemy_Orb : Enemy {
         }
     }
 
-    public void SpawnTurrets(int nrOfGuns) {
+    public void SpawnTurrets(int nrOfGuns, Weapon.Weapons[] weapons) {
         if (nrOfGuns > _turretHardpoints.Length) nrOfGuns = _turretHardpoints.Length;
         for (int i = 0; i < nrOfGuns; i++) {
             TurretHardpoint point = hardpoints[i];
             point.hardpoint = _turretHardpoints[i];
-            point.weaponOnHardpoint = _weaponsOnHardpoints[i];
+            point.weaponOnHardpoint = weapons[i];
 
-            GameObject newTurret = Instantiate(weaponPrefabs[(int)point.weaponOnHardpoint], point.hardpoint.position, point.hardpoint.rotation) as GameObject;
+            GameObject newTurret = Instantiate(GameController.Instance.weaponPrefabs[(int)point.weaponOnHardpoint], point.hardpoint.position, point.hardpoint.rotation) as GameObject;
             point.weapon = newTurret.GetComponent<Weapon>();
             point.weapon.teamToHit = GameController.Teams.Player;
             newTurret.transform.SetParent(point.hardpoint, false);
