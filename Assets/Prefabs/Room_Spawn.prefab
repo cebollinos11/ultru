@@ -810,10 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorways:
   - {fileID: 431958}
-  floorTexture: {fileID: 0}
-  floorNormalMap: {fileID: 0}
-  wallTexture: {fileID: 0}
-  wallNormalMap: {fileID: 0}
+  isRoom: 0
 --- !u!208 &20801796
 NavMeshObstacle:
   m_ObjectHideFlags: 1
@@ -910,7 +907,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154476}

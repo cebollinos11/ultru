@@ -218,7 +218,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!108 &10804528
 Light:
@@ -270,10 +270,10 @@ MonoBehaviour:
   - {fileID: 457106}
   - {fileID: 447406}
   - {fileID: 483146}
-  _weaponsOnHardpoints: 00000000000000000000000000000000
   _playerLocationUpdateTime: .5
   _viewRange: 20
-  _minDistanceToPlayer: 3
+  minDistanceToPlayer: .5
+  _weaponsOnHardpoints: 00000000000000000000000000000000
 --- !u!135 &13553440
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -336,6 +336,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_DrawHalo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

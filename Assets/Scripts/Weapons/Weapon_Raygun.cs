@@ -61,7 +61,6 @@ public class Weapon_Raygun : Weapon {
             }
         }
         else if (!isFiring && chargeTotal < chargeTime && chargeTotal > 0) {
-            Debug.Log("No pew. :(");
             chargeTotal = 0;
             if (teamToHit == GameController.Teams.Player) {
                 transform.LookAt(player.transform);
