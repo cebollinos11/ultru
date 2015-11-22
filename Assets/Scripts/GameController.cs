@@ -23,8 +23,8 @@ public class GameController : Singleton<GameController> {
         }
 
         ElevatorManager.ActivateElevator();
-
-            StartCoroutine(doShutdown());
+        AudioManager.AudioShutdown();
+        StartCoroutine(doShutdown());
         
 
         ////shuts down the space station, all ambient lights are off, and then after X time, the emergency lights start

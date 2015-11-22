@@ -19,6 +19,7 @@ public class Interactable_HackTerminal : Interactable {
         base.DoInteractButtonDown();
                
         GameController.Instance.ShutDown();
+        
         disableTerminal();        
     }
     public override void DoInteractButtonUp() {
