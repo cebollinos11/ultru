@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 60
+  particleSystemPrefab: {fileID: 19896966, guid: a14d89d15b74cd545964852d1f2adcc4,
+    type: 2}
 --- !u!136 &13657762
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -213,6 +215,16 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: particleSystem
+      value: 
+      objectReference: {fileID: 19896966, guid: a14d89d15b74cd545964852d1f2adcc4,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: particleSystemPrefab
+      value: 
+      objectReference: {fileID: 19896966, guid: a14d89d15b74cd545964852d1f2adcc4,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136200}
