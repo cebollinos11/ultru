@@ -105,7 +105,10 @@ public class MapGenerator : MonoBehaviour {
 
 	}
 
-    void PopulateRooms() { 
+    void PopulateRooms() {
+
+
+        Object[] interactableItems =  Resources.LoadAll("mapgen/interactableItems");
         
         //first of all add hackable servers
         int indexOfTerminal = Random.Range(0,rooms.Count-1);
@@ -124,10 +127,11 @@ public class MapGenerator : MonoBehaviour {
                 SpawnWhatWhere(rooms[i], Enemy);
             }
 
-        }
-        
 
-        
+            SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)]);
+
+
+        }    
 
 
     }

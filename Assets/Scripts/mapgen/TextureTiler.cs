@@ -3,8 +3,7 @@ using System.Collections;
 
 public class TextureTiler : MonoBehaviour {
 
-    [SerializeField]
-    float speed;
+    public    float speed;
 	// Use this for initialization
 
     MeshRenderer mr;
