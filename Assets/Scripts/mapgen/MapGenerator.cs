@@ -41,7 +41,7 @@ public class MapGenerator : MonoBehaviour {
         Random.seed =  Random.Range(0, 1000);
         Debug.Log("Seed used: "+ Random.seed.ToString());
 
-        //Random.seed = 237;
+        //Random.seed = 801;
 
 		GenerateMap();
         AudioManager.PlayBgSong(0);
