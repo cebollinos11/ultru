@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbc5e8c82e1f4049b5ecd04f4801462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 10
+  height: 7
 --- !u!114 &11449148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2005,6 +2005,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: height
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -41,7 +41,7 @@ public class MapGenerator : MonoBehaviour {
         Random.seed =  Random.Range(0, 1000);
         Debug.Log("Seed used: "+ Random.seed.ToString());
 
-        //Random.seed = 801;
+        //Random.seed = 14;
 
 		GenerateMap();
         AudioManager.PlayBgSong(0);
@@ -116,8 +116,8 @@ public class MapGenerator : MonoBehaviour {
         {
            
             if (i == indexOfTerminal)
-            {
-               SpawnWhatWhere(rooms[i], hackTerminal);
+            {                
+                    SpawnWhatWhere(rooms[i], hackTerminal);
             }
             else
             {
@@ -134,8 +134,30 @@ public class MapGenerator : MonoBehaviour {
 
 
     void SpawnWhatWhere(Transform room, GameObject itemToSpawn) {
-        
-        GameObject go = Instantiate(itemToSpawn, room.position, room.rotation) as GameObject;
+
+        Vector3 spawnPosition;
+        spawnPosition = room.position;
+
+        Vector3 floorScale = Vector3.one;
+
+        foreach (Transform t in room)
+        {
+            if (t.name == "Floor")
+            {
+                floorScale = t.lossyScale * 4;
+                floorScale = Quaternion.AngleAxis(t.rotation.eulerAngles.y, Vector3.up) * floorScale;
+            }
+        }
+
+
+       
+
+        Debug.Log("local scale is " + floorScale.ToString());
+
+        spawnPosition += new Vector3(Random.Range( -floorScale.x,floorScale.x), 0f, Random.Range(-floorScale.z,floorScale.z));
+        //spawnPosition += new Vector3( floorScale.x, 0f, floorScale.z);
+
+        GameObject go = Instantiate(itemToSpawn, spawnPosition, room.rotation) as GameObject;
         go.transform.parent = room.transform;
     }
     
