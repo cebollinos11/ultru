@@ -41,6 +41,8 @@ public class MapGenerator : MonoBehaviour {
         Random.seed =  Random.Range(0, 1000);
         Debug.Log("Seed used: "+ Random.seed.ToString());
 
+        //Random.seed = 237;
+
 		GenerateMap();
         AudioManager.PlayBgSong(0);
 	}
@@ -108,11 +110,14 @@ public class MapGenerator : MonoBehaviour {
         //first of all add hackable servers
         int indexOfTerminal = Random.Range(0,rooms.Count-1);
         int i;
-        for (i = 0; i < rooms.Count - 1; i++)
+
+        //Debug.Log("indexOfTerminal:" + indexOfTerminal.ToString() + " -> " + (rooms.Count - 1).ToString());
+        for (i = 0; i < rooms.Count ; i++)
         {
+           
             if (i == indexOfTerminal)
             {
-                SpawnWhatWhere(rooms[i], hackTerminal);
+               SpawnWhatWhere(rooms[i], hackTerminal);
             }
             else
             {
@@ -146,12 +151,12 @@ public class MapGenerator : MonoBehaviour {
 	void AttemptSpawnRoom(int i) {
 		Transform newExit = GetUnusedExit();
 		GameObject newRoom = SpawnRoom(newExit.parent.transform, newExit, (GameObject)roomsDB[Random.Range(0, roomsDB.Length)], roomCounter);
-        Debug.Log(newRoom+ "***");
+        //Debug.Log(newRoom+ "***");
 		int tryCounter = 0;
 		while (newRoom == null && tryCounter < maxSpawnAttempts) {
 			GameObject.Destroy(newRoom);
 			newRoom = SpawnRoom(newExit.parent.transform, newExit, (GameObject)roomsDB[Random.Range(0, roomsDB.Length)], roomCounter);
-            Debug.Log(newRoom + "*X*");
+            //Debug.Log(newRoom + "*X*");
             if(newRoom==null)
 			    tryCounter++;
 		}
@@ -162,7 +167,7 @@ public class MapGenerator : MonoBehaviour {
 				return;
 			}
 			foreach (KeyValuePair<int, GameObject> k in locations) {
-                Debug.Log("SOME ROOM WAS DESTROYED -> " + k.Value.ToString());
+                //Debug.Log("SOME ROOM WAS DESTROYED -> " + k.Value.ToString());
 				GameObject.Destroy(k.Value);
 			}
 			GenerateMap();
@@ -244,7 +249,7 @@ public class MapGenerator : MonoBehaviour {
             if (doesIntersect) break;
         }
 
-        Debug.Log("Spawning -> " + selectedRoom.name + " " + selectedRoom.transform.position.ToString() + " does intersect:" + doesIntersect + " connects to " + selectedDoorway.transform.position.ToString());
+        //Debug.Log("Spawning -> " + selectedRoom.name + " " + selectedRoom.transform.position.ToString() + " does intersect:" + doesIntersect + " connects to " + selectedDoorway.transform.position.ToString());
 
         if (doesIntersect)
         {
