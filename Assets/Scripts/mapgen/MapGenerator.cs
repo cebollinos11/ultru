@@ -24,6 +24,11 @@ public class MapGenerator : MonoBehaviour {
     GameObject hackTerminal;
     [SerializeField]
     GameObject Enemy;
+
+    [SerializeField]
+    GameObject Enemy_turret;
+
+
 		
 	protected float ROOMDISTANCEOFFSET = 0.5f;
 
@@ -128,14 +133,16 @@ public class MapGenerator : MonoBehaviour {
            
             if (i == indexOfTerminal)
             {                
-                    SpawnWhatWhere(rooms[i], hackTerminal);
+                    SpawnWhatWhere(rooms[i], hackTerminal,true);
             }
             else
             {
-                SpawnWhatWhere(rooms[i], Enemy);
+                SpawnWhatWhere(rooms[i], Enemy,true);
+                SpawnWhatWhere(rooms[i], Enemy_turret,false);
+
             }
             
-            SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)]);
+            SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)],true);
   
             
 
@@ -146,21 +153,35 @@ public class MapGenerator : MonoBehaviour {
     }
 
 
-    void SpawnWhatWhere(Transform room, GameObject itemToSpawn) {
+    void SpawnWhatWhere(Transform room, GameObject itemToSpawn, bool inFloor) {
 
         Vector3 spawnPosition;
         spawnPosition = room.position;
+
+        Quaternion spawnRotation = room.rotation;
 
         Vector3 floorScale = Vector3.one;
 
         Transform floorTransform = room.transform;
 
+        string lookfor = "Floor";
+        if (inFloor == false)
+        {
+            lookfor = "Ceiling";
+
+            
+        }
+
         foreach (Transform t in room)
         {
-            if (t.name == "Floor")
+            if (t.name == lookfor)
             {                
-                floorTransform = t;
+                floorTransform = t;           
+            
             }
+
+           
+            
         }
 
         spawnPosition = floorTransform.position;
@@ -170,7 +191,7 @@ public class MapGenerator : MonoBehaviour {
         //spawnPosition += new Vector3(Random.Range( -floorScale.x,floorScale.x), 0f, Random.Range(-floorScale.z,floorScale.z));
         //spawnPosition += new Vector3( floorScale.x, 0f, floorScale.z);
 
-        GameObject go = Instantiate(itemToSpawn, spawnPosition, room.rotation) as GameObject;
+        GameObject go = Instantiate(itemToSpawn, spawnPosition, spawnRotation) as GameObject;
         go.transform.parent = floorTransform;
 
         float iIR = room.gameObject.GetComponent<Room>().itemsInRoom;
@@ -185,6 +206,12 @@ public class MapGenerator : MonoBehaviour {
         go.transform.Translate(0f, 0f, floorTransform.lossyScale.z * 4 * (iIR) / 2);
         room.gameObject.GetComponent<Room>().itemsInRoom++;
         go.transform.parent = room.transform;
+
+        if (inFloor == false)
+        {
+            go.transform.eulerAngles = new Vector3(0f, 0f, 180f);
+            
+        }
 
     }
     

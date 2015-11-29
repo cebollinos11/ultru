@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy_Turret : Enemy {
 
-        [SerializeField] enemySurfacePlacement _placedOnSurface;
+        public enemySurfacePlacement _placedOnSurface;
     [SerializeField] Transform[] _turretHardpoints;
     [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
     [SerializeField] float _playerLocationUpdateTime = 3;
