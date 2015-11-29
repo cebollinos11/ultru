@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ElevatorManager : Singleton<ElevatorManager> {
+public class ElevatorManager : MonoBehaviour {
 
     [SerializeField]
     GameObject cylinder;
@@ -18,9 +18,9 @@ public class ElevatorManager : Singleton<ElevatorManager> {
 	
 	}
 
-    public static void ActivateElevator() {
+    public void ActivateElevator() {
 
-        Instance.isActive = true;
-        Instance.cylinder.SetActive(true);
+        isActive = true;
+        cylinder.SetActive(true);
     }
 }

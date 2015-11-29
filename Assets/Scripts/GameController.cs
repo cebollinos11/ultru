@@ -22,7 +22,8 @@ public class GameController : Singleton<GameController> {
             lightBulb.GetComponent<LightController>().DelayTurnOn();
         }
 
-        ElevatorManager.ActivateElevator();
+        //ElevatorManager.ActivateElevator();
+        GameObject.Find("Elevator").GetComponent<ElevatorManager>().ActivateElevator();
         AudioManager.AudioShutdown();
         StartCoroutine(doShutdown());
         

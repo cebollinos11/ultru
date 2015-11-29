@@ -41,14 +41,22 @@ public class MapGenerator : MonoBehaviour {
         Random.seed =  Random.Range(0, 1000);
         Debug.Log("Seed used: "+ Random.seed.ToString());
 
-        //Random.seed = 14;
+        //Random.seed = 284;
 
 		GenerateMap();
-        AudioManager.PlayBgSong(0);
+        Invoke("StartBGSong",1f);
 	}
+
+    void StartBGSong() {
+        AudioManager.PlayBgSong(0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.X)) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
 	}
 	
 	void GenerateMap() {
@@ -176,6 +184,7 @@ public class MapGenerator : MonoBehaviour {
         iIR = Mathf.CeilToInt(iIR);
         go.transform.Translate(0f, 0f, floorTransform.lossyScale.z * 4 * (iIR) / 2);
         room.gameObject.GetComponent<Room>().itemsInRoom++;
+        go.transform.parent = room.transform;
 
     }
     
