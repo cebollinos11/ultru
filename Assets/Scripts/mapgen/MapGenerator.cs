@@ -128,6 +128,7 @@ public class MapGenerator : MonoBehaviour {
             }
             
             SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)]);
+  
             
 
 
@@ -164,12 +165,16 @@ public class MapGenerator : MonoBehaviour {
         GameObject go = Instantiate(itemToSpawn, spawnPosition, room.rotation) as GameObject;
         go.transform.parent = floorTransform;
 
-        int iIR = room.gameObject.GetComponent<Room>().itemsInRoom;
+        float iIR = room.gameObject.GetComponent<Room>().itemsInRoom;
 
         if (iIR % 2 == 0) {
             iIR *= -1;    
         }
-        go.transform.Translate(0f, 0f, floorTransform.lossyScale.z * 4 * (iIR) / 4);
+
+        iIR *= 0.5f;
+
+        iIR = Mathf.CeilToInt(iIR);
+        go.transform.Translate(0f, 0f, floorTransform.lossyScale.z * 4 * (iIR) / 2);
         room.gameObject.GetComponent<Room>().itemsInRoom++;
 
     }
