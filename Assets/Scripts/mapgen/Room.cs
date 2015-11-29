@@ -10,6 +10,7 @@ public class Room : MonoBehaviour {
 
     public bool isRoom;
 	// Use this for initialization
+    public int itemsInRoom = 0;
 
 
 

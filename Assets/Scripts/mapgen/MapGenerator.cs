@@ -126,9 +126,9 @@ public class MapGenerator : MonoBehaviour {
             {
                 SpawnWhatWhere(rooms[i], Enemy);
             }
-
-
+            
             SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)]);
+            
 
 
         }    
@@ -144,25 +144,34 @@ public class MapGenerator : MonoBehaviour {
 
         Vector3 floorScale = Vector3.one;
 
+        Transform floorTransform = room.transform;
+
         foreach (Transform t in room)
         {
             if (t.name == "Floor")
-            {
-                floorScale = t.lossyScale * 4;
-                floorScale = Quaternion.AngleAxis(t.rotation.eulerAngles.y, Vector3.up) * floorScale;
+            {                
+                floorTransform = t;
             }
         }
 
+        spawnPosition = floorTransform.position;
 
        
 
-        Debug.Log("local scale is " + floorScale.ToString());
-
-        spawnPosition += new Vector3(Random.Range( -floorScale.x,floorScale.x), 0f, Random.Range(-floorScale.z,floorScale.z));
+        //spawnPosition += new Vector3(Random.Range( -floorScale.x,floorScale.x), 0f, Random.Range(-floorScale.z,floorScale.z));
         //spawnPosition += new Vector3( floorScale.x, 0f, floorScale.z);
 
         GameObject go = Instantiate(itemToSpawn, spawnPosition, room.rotation) as GameObject;
-        go.transform.parent = room.transform;
+        go.transform.parent = floorTransform;
+
+        int iIR = room.gameObject.GetComponent<Room>().itemsInRoom;
+
+        if (iIR % 2 == 0) {
+            iIR *= -1;    
+        }
+        go.transform.Translate(0f, 0f, floorTransform.lossyScale.z * 4 * (iIR) / 4);
+        room.gameObject.GetComponent<Room>().itemsInRoom++;
+
     }
     
 

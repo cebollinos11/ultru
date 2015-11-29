@@ -556,6 +556,7 @@ MonoBehaviour:
   - {fileID: 445134}
   - {fileID: 462754}
   isRoom: 0
+  itemsInRoom: 0
 --- !u!114 &11477042
 MonoBehaviour:
   m_ObjectHideFlags: 1
