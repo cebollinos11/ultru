@@ -72,16 +72,16 @@ public class Weapon_Raygun : Weapon {
         Ray ray = new Ray(shootOrigin[0].position, shootOrigin[0].forward);
         RaycastHit hitinfo;
         if (Physics.Raycast(ray, out hitinfo, range)) {
-            if (teamToHit == GameController.Teams.Enemy) {
-                Enemy enemy = hitinfo.transform.GetComponent<Enemy>();
-                if (enemy != null) {
-                    enemy.Hit(damage);
+            if (teamToHit == GameController.Teams.Player) {
+                LifeManager_Player lifeMan = hitinfo.transform.GetComponent<LifeManager_Player>();
+                if (lifeMan != null) {
+                    lifeMan.ReceiveDamage(damage, hitinfo.point);
                 }
             }
-            else if (teamToHit == GameController.Teams.Player) {
-                Player p = hitinfo.transform.GetComponent<Player>();
-                if (p != null) {
-                    p.Hit(damage);
+            else if (teamToHit == GameController.Teams.Enemy) {
+                LifeManager lifeMan = hitinfo.transform.GetComponent<LifeManager>();
+                if (lifeMan != null) {
+                    lifeMan.ReceiveDamage(damage, hitinfo.point);
                 }
             }
 

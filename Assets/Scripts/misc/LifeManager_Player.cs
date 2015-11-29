@@ -17,7 +17,7 @@ public class LifeManager_Player : LifeManager {
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.M)) {
-            ReceiveDamage(10);
+            ReceiveDamage(10, Vector3.zero);
             
         }
 
@@ -29,9 +29,9 @@ public class LifeManager_Player : LifeManager {
 	
 	}
 
-    public override void ReceiveDamage(int dmg)
+    public override void ReceiveDamage(int dmg, Vector3 hitPos)
     {
-        base.ReceiveDamage(dmg);
+        base.ReceiveDamage(dmg, hitPos);
         GUIManager.SetHP(currentHP);
         GUIManager.Instance.uiFlash.Flash(Color.red);        
     }

@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] protected GameObject[] weaponPrefabs;
     [SerializeField] protected int maxHp = 100;
+    [SerializeField] GameObject onHitEffect;
+    [SerializeField] GameObject onDeathEffect;
+    [SerializeField] GameObject ragdollPrefab;
+    [SerializeField] float ragdollPushForce;
 
     protected float playerLocationUpdateTime = 3;
     protected float viewRange = 100;
@@ -42,10 +46,17 @@ public class Enemy : MonoBehaviour {
         rbody = GetComponent<Rigidbody>();
         lifeManager = GetComponent<LifeManager>();
         lifeManager.Init(maxHp);
+        lifeManager.onDamage += Hit;
+        lifeManager.onDeath += Death;
 	}
-	
-	// Update is called once per frame
-	protected virtual void Update () {
+
+    void OnDisable() {
+        lifeManager.onDamage -= Hit;
+        lifeManager.onDeath -= Death;
+    }
+
+    // Update is called once per frame
+    protected virtual void Update () {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         if (rayCastTimerRemaining <= 0) {
@@ -80,9 +91,23 @@ public class Enemy : MonoBehaviour {
         navAgent.destination = originalLocation;
     }
 
-    public void Hit(float damage) {
-        Debug.Log("Enemy was hit for " + damage + " dmg!");
-        
+    public virtual void Hit(Vector3 hitPos) {
+        if (onHitEffect != null) {
+            Instantiate(onHitEffect, hitPos, Quaternion.identity);
+        }
+
+    }
+
+    public virtual void Death() {
+        if (onDeathEffect != null) {
+            Instantiate(onHitEffect, transform.position, Random.rotation);
+        }
+        if (ragdollPrefab != null) {
+            Instantiate(onDeathEffect, transform.position, transform.rotation);
+            GameObject ragdoll = Instantiate(ragdollPrefab, transform.position, transform.rotation) as GameObject;
+            //ragdoll.GetComponent<Rigidbody>().AddForce(Random.rotation.eulerAngles.normalized * ragdollPushForce);
+        }
+        Destroy(gameObject);
     }
 
     void OnDrawGizmos() {

@@ -333,7 +333,9 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -611,6 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e3b951368006f48b4ddbeb5a5699ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 0
+  currentHP: 0
   _maxHP: 100
 --- !u!124 &12477332
 Behaviour:
@@ -638,7 +642,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.79999995
   m_Radius: .5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 7
   m_StepOffset: 1
   m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
@@ -653,6 +657,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SlopeLimit
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

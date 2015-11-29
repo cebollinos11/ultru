@@ -12,12 +12,10 @@ public class Enemy_Orb : Enemy {
     TurretHardpoint[] hardpoints;
     bool chasing;
     bool waiting;
-
-
+    
     //For testing - To remove
     [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
-
-
+    
     // Use this for initialization
     protected override void Start () {
         base.Start();
@@ -102,4 +100,5 @@ public class Enemy_Orb : Enemy {
             
         }
     }
+
 }

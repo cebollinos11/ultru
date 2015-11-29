@@ -20,10 +20,17 @@ public class Player : MonoBehaviour {
 
         EquipWeapon(weaponInHand);
 
+        lifeManager.onDamage += Hit;
+        lifeManager.onDeath += Death;
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
 	}
 	
+    void OnDisable() {
+        lifeManager.onDamage -= Hit;
+        lifeManager.onDeath -= Death;
+    }
+
 	// Update is called once per frame
 	void Update () {
         //TODO: Change to mouse button
@@ -37,9 +44,12 @@ public class Player : MonoBehaviour {
         }
 	}
 
-    public void Hit(float damage) {
-        Debug.Log("Player hit for " + damage + " dmg!");
-        lifeManager.ReceiveDamage((int)damage);
+    public void Hit(Vector3 hitPos) {
+
+    }
+
+    public void Death() {
+
     }
 
     public void EquipWeapon(Weapon.Weapons weaponToEquip) {

@@ -31,29 +31,12 @@ public class Blaster_Laser : MonoBehaviour {
         
     }
 
-    void CheckHit(RaycastHit hit) {
-        if (teamToHit == GameController.Teams.Player) {
-            LifeManager_Player lifeMan = hit.transform.GetComponent<LifeManager_Player>();
-            if (lifeMan != null) {
-                lifeMan.ReceiveDamage(damage);
-                Destroy(gameObject);
-            }
-        }
-        else if (teamToHit == GameController.Teams.Enemy) {
-            LifeManager lifeMan = hit.transform.GetComponent<LifeManager>();
-            if (lifeMan != null) {
-                lifeMan.ReceiveDamage(damage);
-                Destroy(gameObject);
-            }
-        }
-    }
-
     void OnTriggerEnter(Collider col) {
         if (col.isTrigger) return;
         if (teamToHit == GameController.Teams.Player) {
             LifeManager_Player lifeMan = col.gameObject.GetComponent<LifeManager_Player>();
             if (lifeMan != null) {
-                lifeMan.ReceiveDamage(damage);
+                lifeMan.ReceiveDamage(damage, transform.position);
             }
             else {
                 SpawnParticles();
@@ -62,7 +45,7 @@ public class Blaster_Laser : MonoBehaviour {
         else if (teamToHit == GameController.Teams.Enemy) {
             LifeManager lifeMan = col.gameObject.GetComponent<LifeManager>();
             if (lifeMan != null) {
-                lifeMan.ReceiveDamage(damage);
+                lifeMan.ReceiveDamage(damage, transform.position);
             }
             else {
                 SpawnParticles();
