@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour {
         if (ragdollPrefab != null) {
             Instantiate(onDeathEffect, transform.position, transform.rotation);
             GameObject ragdoll = Instantiate(ragdollPrefab, transform.position, transform.rotation) as GameObject;
-            //ragdoll.GetComponent<Rigidbody>().AddForce(Random.rotation.eulerAngles.normalized * ragdollPushForce);
+            ragdoll.GetComponent<Rigidbody>().AddForce(Random.rotation.eulerAngles.normalized * ragdollPushForce, ForceMode.Impulse);
         }
         Destroy(gameObject);
     }

@@ -10,7 +10,8 @@ public class Weapon : MonoBehaviour {
     public enum Weapons {
         Nothing = -1,
         Raygun = 0,
-        Blaster = 1
+        Blaster = 1,
+        GrenadeLauncher = 2
     }
 
     protected Transform[] shootOrigin;
@@ -25,6 +26,11 @@ public class Weapon : MonoBehaviour {
     public bool isFiring = false;
     public GameController.Teams teamToHit;
     protected Player player;
+    protected Animator animator;
+
+    protected virtual void Start() {
+        animator = GetComponent<Animator>();
+    }
 
 	public virtual void Fire() {
         //Subtract ammunition from player

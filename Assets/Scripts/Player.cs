@@ -80,6 +80,10 @@ public class Player : MonoBehaviour {
                 case 1:
                     equippedWeapon = GetComponentInChildren<Weapon_Blaster>();
                     break;
+                //Grenade Launcher
+                case 2:
+                    equippedWeapon = GetComponentInChildren<Weapon_GrenadeLauncher>();
+                    break;
             }
             equippedWeapon.teamToHit = GameController.Teams.Enemy;
             foreach (Transform t in newWeapon.GetComponentsInChildren<Transform>()) {
