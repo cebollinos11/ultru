@@ -52,11 +52,17 @@ public class Player : MonoBehaviour {
 
     }
 
+    public void PickupWeapon(Weapon.Weapons weapon) {
+        EquipWeapon(weapon);
+    }
+
     public void EquipWeapon(Weapon.Weapons weaponToEquip) {
-        if (weaponToEquip == Weapon.Weapons.Nothing) {
+        if (hand.childCount > 0) {
             Transform temp = hand.GetChild(0);
             if (temp != null) Destroy(temp.gameObject);
             equippedWeapon = null;
+        }
+        if (weaponToEquip == Weapon.Weapons.Nothing) {
         }
         else {
             GameObject prefabToSpawn = gameController.weaponPrefabs[(int)weaponToEquip];
