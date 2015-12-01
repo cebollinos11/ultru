@@ -10,7 +10,6 @@ public class Weapon_Blaster : Weapon {
     [SerializeField] GameObject laserShotPrefab;
     [SerializeField] Color laserColor;
     AudioSource bulletSound;
-    
 
     struct GunBarrel {
         public Transform barrelEnd;
@@ -20,7 +19,8 @@ public class Weapon_Blaster : Weapon {
     GunBarrel[] barrels;
 
     // Use this for initialization
-    void Start () {
+    protected override void Start () {
+        base.Start();
         base.damage = _damage;
         base.ammoCostPerShot = _ammoCostPerShot;
         base.fireRate = _fireRate;
@@ -35,7 +35,7 @@ public class Weapon_Blaster : Weapon {
         barrels = new GunBarrel[] {barrel1, barrel2};
 
         bulletSound = GetComponent<AudioSource>();
-
+        
     }
 	
 	// Update is called once per frame
@@ -43,6 +43,10 @@ public class Weapon_Blaster : Weapon {
         if (!(barrels[0].cooldownRemaining <= 0) && !(barrels[1].cooldownRemaining <= 0)) {
             barrels[0].cooldownRemaining -= Time.deltaTime;
             barrels[1].cooldownRemaining -= Time.deltaTime;
+        }
+
+        if (teamToHit == GameController.Teams.Player) {
+            transform.LookAt(player.transform);
         }
 
         if (isFiring || autoFire) {
