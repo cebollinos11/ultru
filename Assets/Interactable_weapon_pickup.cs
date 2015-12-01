@@ -3,10 +3,14 @@ using System.Collections;
 
 public class Interactable_weapon_pickup : Interactable {
 
+    
+
 
     public override void DoHighlight()
     {
         base.DoHighlight();
+
+        
         GUIManager.Instance.interactableLabelText.text = "Press E to pick up";        
 
     }
