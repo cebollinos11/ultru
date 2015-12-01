@@ -30,6 +30,7 @@ public class Weapon : MonoBehaviour {
 
     protected virtual void Start() {
         animator = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
 	public virtual void Fire() {
