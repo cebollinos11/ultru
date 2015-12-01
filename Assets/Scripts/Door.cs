@@ -8,6 +8,7 @@ public class Door : MonoBehaviour {
 
     AudioSource[] myAudioSource;
     int peopleOnCollider = 0;
+    bool hasDoor = false;
 
     void Awake() {
         myAudioSource = GetComponents<AudioSource>();
@@ -15,6 +16,7 @@ public class Door : MonoBehaviour {
     
 
 	void OnTriggerEnter (Collider col) {
+        if (!hasDoor) return;
         if (col.isTrigger) return;
         peopleOnCollider++;
 
@@ -29,6 +31,7 @@ public class Door : MonoBehaviour {
 	}
 	
 	void OnTriggerExit (Collider col) {
+        if (!hasDoor) return;
         if (col.isTrigger) return;
         peopleOnCollider--;
         if (peopleOnCollider == 0)
@@ -43,6 +46,7 @@ public class Door : MonoBehaviour {
 	public void SetDoorVisibility (bool isVisible) {
 		doorAnim.GetComponent<MeshRenderer>().enabled = isVisible;
         transform.GetChild(0).GetComponent<BoxCollider>().enabled = isVisible;
+        hasDoor = isVisible;
 	}
 
     void Update() {

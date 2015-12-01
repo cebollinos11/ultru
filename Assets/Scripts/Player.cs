@@ -4,26 +4,30 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     [SerializeField] Transform hand;
+    [SerializeField] AudioClip weapon_Pickup;
+    [SerializeField] Weapon.Weapons startWeapon;
 
     InteractionManager ioManager;
     GameController gameController;
-    public Weapon.Weapons weaponInHand;
+    [HideInInspector] public Weapon.Weapons weaponInHand;
     Weapon equippedWeapon;
     LifeManager lifeManager;
+    AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-
+        weaponInHand = Weapon.Weapons.Nothing;
         lifeManager = GetComponent<LifeManager_Player>();
         ioManager = GetComponent<InteractionManager>();
         gameController = GameController.Instance;
 
-        EquipWeapon(weaponInHand);
+        EquipWeapon(startWeapon);
 
         lifeManager.onDamage += Hit;
         lifeManager.onDeath += Death;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        audioSource = GetComponent<AudioSource>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 	}
 	
     void OnDisable() {
@@ -54,9 +58,11 @@ public class Player : MonoBehaviour {
 
     public void PickupWeapon(Weapon.Weapons weapon) {
         EquipWeapon(weapon);
+        audioSource.PlayOneShot(weapon_Pickup, 0.8f);
     }
 
     public void EquipWeapon(Weapon.Weapons weaponToEquip) {
+        if (weaponToEquip == weaponInHand) return;
         if (hand.childCount > 0) {
             Transform temp = hand.GetChild(0);
             if (temp != null) Destroy(temp.gameObject);
@@ -89,6 +95,7 @@ public class Player : MonoBehaviour {
             foreach (Transform t in newWeapon.GetComponentsInChildren<Transform>()) {
                 t.gameObject.layer = LayerMask.NameToLayer("Weapon");
             }
+            weaponInHand = weaponToEquip;
         }
 
     }

@@ -11,6 +11,8 @@ public class Weapon_Blaster : Weapon {
     [SerializeField] Color laserColor;
     AudioSource bulletSound;
 
+    public bool autoAim = false;
+
     struct GunBarrel {
         public Transform barrelEnd;
         public float cooldownRemaining;
@@ -45,7 +47,7 @@ public class Weapon_Blaster : Weapon {
             barrels[1].cooldownRemaining -= Time.deltaTime;
         }
 
-        if (teamToHit == GameController.Teams.Player) {
+        if (teamToHit == GameController.Teams.Player && autoAim) {
             transform.LookAt(player.transform);
         }
 
