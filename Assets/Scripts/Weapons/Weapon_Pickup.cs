@@ -11,6 +11,8 @@ public class Weapon_Pickup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        Initialise((Weapon.Weapons)Random.Range(0, 3));
         
 	}
 	
@@ -35,6 +37,7 @@ public class Weapon_Pickup : MonoBehaviour {
         weaponPrefab = GameController.Instance.weaponPrefabs[(int)pickup];
         weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity) as GameObject;
         weapon.transform.parent = transform;
-        weapon.transform.localPosition = new Vector3(0, 0, -0.8f);
+        weapon.transform.localPosition = new Vector3(0, 0, 0);
     }
+
 }

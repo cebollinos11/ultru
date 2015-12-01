@@ -33,16 +33,24 @@ public class Interactable_Elevator : Interactable
         base.DoInteractButtonDown();
         if (eM.isActive)
         {
-            GUIManager.Instance.interactableLabelText.text = "You successfully escape!";
+            GUIManager.Instance.interactableLabelText.text = "You successfully escaped!";
+            Invoke("WinGame",2f);
         }
 
         else{
             GUIManager.Instance.interactableLabelText.text = "Nothing happens";
         }
     }
+
+
     public override void DoInteractButtonUp()
     {
         base.DoInteractButtonUp();
+    }
+
+    void WinGame() {
+        LevelManager.Instance.lvl++;
+        LevelManager.Instance.GoToMainMenu();
     }
 
     

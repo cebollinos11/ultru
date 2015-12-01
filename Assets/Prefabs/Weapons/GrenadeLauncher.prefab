@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 466928}
   - 33: {fileID: 3394486}
-  - 65: {fileID: 6513146}
   - 23: {fileID: 2330274}
   m_Layer: 0
   m_Name: Cube (1)
@@ -61,7 +60,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 478146}
   - 33: {fileID: 3381808}
-  - 65: {fileID: 6542894}
   - 23: {fileID: 2374656}
   m_Layer: 0
   m_Name: Cube
@@ -79,7 +77,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 403470}
   - 33: {fileID: 3331982}
-  - 65: {fileID: 6565716}
   - 23: {fileID: 2398612}
   m_Layer: 0
   m_Name: Cube (2)
@@ -131,7 +128,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 456676}
   - 33: {fileID: 3390164}
-  - 65: {fileID: 6503678}
   - 23: {fileID: 2337218}
   m_Layer: 0
   m_Name: Cube (3)
@@ -149,7 +145,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 403906}
   - 33: {fileID: 3392194}
-  - 136: {fileID: 13633278}
   - 23: {fileID: 2310816}
   m_Layer: 0
   m_Name: Cylinder
@@ -334,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.0473061, y: 0, z: -2.03999996}
+  m_LocalPosition: {x: 106.621384, y: -4.28119755, z: -17.7920055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415910}
@@ -672,54 +667,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105086}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6503678
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172418}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6513146
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105086}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6542894
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6565716
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 144340}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9506030
 Animator:
   serializedVersion: 3
@@ -759,19 +706,6 @@ MonoBehaviour:
   _shootOrigin:
   - {fileID: 445996}
   grenadePrefab: {fileID: 140482, guid: 676177c412de75c47ac89b14e97cda15, type: 2}
---- !u!136 &13633278
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

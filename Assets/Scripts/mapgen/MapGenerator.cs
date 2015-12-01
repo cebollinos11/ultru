@@ -27,6 +27,7 @@ public class MapGenerator : MonoBehaviour {
 
     [SerializeField]
     GameObject Enemy_turret;
+    [SerializeField] GameObject Weapon_Pickup;
 
 
 		
@@ -81,6 +82,7 @@ public class MapGenerator : MonoBehaviour {
         //}
 
 
+        maxRooms = LevelManager.Instance.spaceStationSize;
         locations = new Dictionary<int, GameObject>();
         roomConnections = new Dictionary<Transform, Transform>();
         unusedDoorways = new List<Transform>();
@@ -137,19 +139,27 @@ public class MapGenerator : MonoBehaviour {
             }
             else
             {
-                SpawnWhatWhere(rooms[i], Enemy,true);
-                SpawnWhatWhere(rooms[i], Enemy_turret,false);
+                if(LevelManager.Instance.Roll(LevelManager.Instance.orb))   
+                    SpawnWhatWhere(rooms[i], Enemy,true);
 
+                if (LevelManager.Instance.Roll(LevelManager.Instance.turret))
+                    SpawnWhatWhere(rooms[i], Enemy_turret, false);
+                    
+
+
+                
             }
-            
-            SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)],true);
-  
-            
+            if (LevelManager.Instance.Roll(LevelManager.Instance.help))
+                SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)],true);
+
+            if (LevelManager.Instance.Roll(LevelManager.Instance.help))
+                SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)], true);
+
+            if (LevelManager.Instance.Roll(LevelManager.Instance.weapon))
+                SpawnWhatWhere(rooms[i], Weapon_Pickup, true); 
 
 
         }    
-
-
     }
 
 
