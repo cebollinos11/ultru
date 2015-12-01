@@ -155,7 +155,7 @@ public class MapGenerator : MonoBehaviour {
             if (LevelManager.Instance.Roll(LevelManager.Instance.help))
                 SpawnWhatWhere(rooms[i], (GameObject)interactableItems[Random.Range(0, interactableItems.Length)], true);
 
-            if (LevelManager.Instance.Roll(LevelManager.Instance.weapon))
+            //if (LevelManager.Instance.Roll(LevelManager.Instance.weapon))
                 SpawnWhatWhere(rooms[i], Weapon_Pickup, true); 
 
 

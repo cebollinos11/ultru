@@ -23,6 +23,7 @@ public class Interactable_weapon_pickup : Interactable {
     {
         base.DoInteractButtonDown();
         GetComponent<Weapon_Pickup>().PickUp();
+        GUIManager.Instance.interactableLabelText.text = "";
 
     }
 
