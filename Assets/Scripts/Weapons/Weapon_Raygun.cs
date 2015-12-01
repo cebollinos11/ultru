@@ -47,6 +47,10 @@ public class Weapon_Raygun : Weapon {
                 //chargeSound.Play();
             }
             chargeTotal += Time.deltaTime;
+            if (chargeTotal < 1.25f && teamToHit == GameController.Teams.Player){
+                    transform.LookAt(player.transform);
+            }
+
             float currentPercent = (chargeSphereMaxSize / chargeTime) * chargeTotal;
             chargeMat.SetFloat("_LineWidth", currentPercent);
             chargeSphere.Rotate(Vector3.forward, chargeSphereRotationSpeed * Time.deltaTime);
@@ -56,15 +60,9 @@ public class Weapon_Raygun : Weapon {
         }
         else if (!isFiring && chargeTotal >= chargeTime) {
             Hitcheck();
-            if (teamToHit == GameController.Teams.Player) {
-                transform.LookAt(player.transform);
-            }
         }
         else if (!isFiring && chargeTotal < chargeTime && chargeTotal > 0) {
             chargeTotal = 0;
-            if (teamToHit == GameController.Teams.Player) {
-                transform.LookAt(player.transform);
-            }
         }
 	}
 

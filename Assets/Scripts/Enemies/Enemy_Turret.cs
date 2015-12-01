@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy_Turret : Enemy {
 
-        public enemySurfacePlacement _placedOnSurface;
+    public enemySurfacePlacement _placedOnSurface;
     [SerializeField] Transform[] _turretHardpoints;
     [SerializeField] Weapon.Weapons[] _weaponsOnHardpoints;
     [SerializeField] float _playerLocationUpdateTime = 3;
@@ -29,7 +29,7 @@ public class Enemy_Turret : Enemy {
         base.placedOnSurface = _placedOnSurface;
         barrel1StartRot = barrel1.localRotation;
         barrel2StartRot = barrel2.localRotation;
-
+        MAXHARDPOINTS = 2;
         SpawnTurrets(2, _weaponsOnHardpoints);
         
     }
@@ -63,9 +63,7 @@ public class Enemy_Turret : Enemy {
         }
         else {
             foreach (TurretHardpoint t in hardpoints) {
-                if (t.weapon.isFiring) {
-                    t.weapon.StopFiring();
-                }
+                t.weapon.StopFiring();
             }
         }
     }

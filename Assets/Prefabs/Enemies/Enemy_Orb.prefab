@@ -193,9 +193,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -291,7 +289,7 @@ MonoBehaviour:
   - {fileID: 457106}
   - {fileID: 447406}
   - {fileID: 483146}
-  _playerLocationUpdateTime: .5
+  _playerLocationUpdateTime: .200000003
   _viewRange: 20
   minDistanceToPlayer: .5
   _weaponsOnHardpoints: 00000000000000000000000000000000
@@ -389,6 +387,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ragdollPushForce
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _playerLocationUpdateTime
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -22,6 +22,7 @@ public class Enemy_Orb : Enemy {
         base.playerLocationUpdateTime = _playerLocationUpdateTime;
         base.viewRange = _viewRange;
         hardpoints = new TurretHardpoint[_turretHardpoints.Length];
+        MAXHARDPOINTS = 4;
 
         //For testing. Should be run by MapGenerator.
         SpawnTurrets(4, _weaponsOnHardpoints);
