@@ -44,11 +44,11 @@ public class Weapon_GrenadeLauncher : Weapon {
             if (shootDelayRemaining >= shootDelay) {
                 waitForFire = false;
                 fireRateCooldown = fireRate;
-
-                GameObject grenade = Instantiate(grenadePrefab, shootOrigin[0].position, Quaternion.identity) as GameObject;
+                shootDelayRemaining = 0;
+                GameObject grenade = Instantiate(grenadePrefab, shootOrigin[0].position, transform.rotation) as GameObject;
                 GrenadeLauncher_Grenade nade = grenade.GetComponent<GrenadeLauncher_Grenade>();
                 nade.Initialize(explosionRadius, damage, teamToHit);
-                nade.GetComponent<Rigidbody>().AddForce(transform.rotation.eulerAngles.normalized * grenadePushForce, ForceMode.Impulse);
+                nade.GetComponent<Rigidbody>().AddForce(nade.transform.forward * grenadePushForce, ForceMode.Impulse);
             }
         }
     }
