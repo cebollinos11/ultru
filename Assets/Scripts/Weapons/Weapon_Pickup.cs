@@ -21,13 +21,18 @@ public class Weapon_Pickup : MonoBehaviour {
         transform.Rotate(transform.up, rotationSpeed * Time.deltaTime, Space.World);
 	}
 
-    void OnTriggerEnter(Collider col) {
-        Player player = col.GetComponent<Player>();
-        if (player != null) {
+    public void PickUp() {
+
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (player != null)
+        {
             player.PickupWeapon(pickup);
             Destroy(gameObject);
         }
+    
     }
+
+    
 
     public void Initialise(Weapon.Weapons pickup) {
         if (pickup == Weapon.Weapons.Nothing)
