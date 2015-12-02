@@ -578,6 +578,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11497102, guid: d0616ac09a05ea54e81baa8031763765, type: 2}
+      propertyPath: backgroundSongs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 36b4a574fa1af6745a7bf68811bd99b2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0616ac09a05ea54e81baa8031763765, type: 2}
   m_IsPrefabParent: 0
