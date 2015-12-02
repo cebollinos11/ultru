@@ -17,8 +17,8 @@ public class Flashlight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.F))
-        { Toggle(); }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{ Toggle(); }
 	
 	}
 

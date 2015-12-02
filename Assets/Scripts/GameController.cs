@@ -16,6 +16,8 @@ public class GameController : Singleton<GameController> {
 
     public void ShutDown() {
 
+        Invoke("TurnOnFlashlight", 3f);
+
         foreach (GameObject lightBulb in GameObject.FindGameObjectsWithTag("LightBulb"))
         {
             lightBulb.GetComponent<LightController>().TurnOff();
@@ -28,28 +30,11 @@ public class GameController : Singleton<GameController> {
         StartCoroutine(doShutdown());
         
 
-        ////shuts down the space station, all ambient lights are off, and then after X time, the emergency lights start
+   
+    }
 
-        //if (isShutdown) { return;
-        //}
-
-        //isShutdown = true;
-        //RenderSettings.ambientIntensity = 0f;
-
-
-        ////find all light bulbs and turn them off
-        //foreach (GameObject lightBulb in GameObject.FindGameObjectsWithTag("LightBulb"))
-        //{
-        //    lightBulb.GetComponent<LightController>().TurnOff();
-        //    lightBulb.GetComponent<LightController>().DelayTurnOn();
-        //}
-
-        ////find player SpotLight and turn it on
-        ////Debug.Log("turning on " + GameObject.Find("Flashlight"));
-        ////GameObject.Find("Flashlight").GetComponent<Flashlight>().TurnOn();
-        
-
-
+    void TurnOnFlashlight() {
+        GameObject.Find("Flashlight").GetComponent<Flashlight>().TurnOn();
     }
 
     IEnumerator doShutdown() {
