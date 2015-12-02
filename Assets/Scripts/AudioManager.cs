@@ -37,7 +37,10 @@ public class AudioManager : Singleton<AudioManager>
     public static void PlayBgSong(int i)
     {
 
-        Instance.mainAudioSource.PlayOneShot(Instance.backgroundSongs[i]);
+        //Instance.mainAudioSource.PlayOneShot(Instance.backgroundSongs[i]);
+        Instance.mainAudioSource.clip = Instance.backgroundSongs[i];
+        Instance.mainAudioSource.loop = true;
+        Instance.mainAudioSource.Play();
 
     }
 
