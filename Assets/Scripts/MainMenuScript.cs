@@ -38,7 +38,9 @@ public class MainMenuScript : MonoBehaviour {
 	void Update () {
 
         currentLevel.text = LevelManager.Instance.lvl.ToString();
-	
+	    if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
 	}
 
     public void OnStartButtonClick() {
