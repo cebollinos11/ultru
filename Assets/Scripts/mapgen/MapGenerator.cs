@@ -136,6 +136,7 @@ public class MapGenerator : MonoBehaviour {
             if (i == indexOfTerminal)
             {                
                     SpawnWhatWhere(rooms[i], hackTerminal,true);
+                    SpawnWhatWhere(rooms[i], Enemy_turret, false);
             }
             else
             {
