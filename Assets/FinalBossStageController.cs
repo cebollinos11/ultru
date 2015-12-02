@@ -3,6 +3,9 @@ using System.Collections;
 
 public class FinalBossStageController : MonoBehaviour {
 
+    [SerializeField] GameObject bossPrefab;
+    [SerializeField] Transform[] teleportLocations;
+
     bool hasTheBossSpawned;
 
 	// Use this for initialization
@@ -18,7 +21,8 @@ public class FinalBossStageController : MonoBehaviour {
 
         hasTheBossSpawned = true;
         AudioManager.AudioShutdown();
-
+        GameObject go = Instantiate(bossPrefab, teleportLocations[0].position, Quaternion.identity) as GameObject;
+        go.GetComponent<Boss>().Init(teleportLocations, this);
     }
 
     public void BigBossKilled() {
