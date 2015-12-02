@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7369138b146cb4faef102bb560f77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRooms: 20
+  maxRooms: 10
   spawnRoomPrefab: {fileID: 154476, guid: c9e1e7b634fa6604e95d2150b84a75f5, type: 2}
   exitRoomPrefab: {fileID: 154476, guid: fa3628e8a6a42b1428bad48a155552e6, type: 2}
   doorPrefab: {fileID: 100000, guid: cfef738579cd02c40b3b1d63e67b0f84, type: 2}
@@ -49,6 +49,8 @@ MonoBehaviour:
   noDoorProbabilityPercent: 10
   hackTerminal: {fileID: 127192, guid: b7cd27728d4600a469909c25993446d7, type: 2}
   Enemy: {fileID: 153512, guid: 2ea7a75eb5ffd774583d6f58eb716c59, type: 2}
+  Enemy_turret: {fileID: 119394, guid: b2b8ec23052448b42b985984fae043e0, type: 2}
+  Weapon_Pickup: {fileID: 123346, guid: f39a4a6a7e7c7f1458818d90d3375b5c, type: 2}
 --- !u!114 &11497340
 MonoBehaviour:
   m_ObjectHideFlags: 1

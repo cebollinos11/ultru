@@ -1777,8 +1777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefabs: []
   maxHp: 50
-  onHitEffect: {fileID: 100000, guid: 67e5b9f09995840449c988b145cc1d7b, type: 2}
-  onDeathEffect: {fileID: 100000, guid: c8fd86fe5050dc04bb501b291c30f591, type: 2}
+  onHitEffect: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
+  onDeathEffect: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
   ragdollPrefab: {fileID: 119570, guid: a74cc4e2751271d4baa21e02546577b8, type: 2}
   ragdollPushForce: 10
   _placedOnSurface: 0
@@ -1836,11 +1836,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: onHitEffect
       value: 
-      objectReference: {fileID: 100000, guid: 67e5b9f09995840449c988b145cc1d7b, type: 2}
+      objectReference: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
     - target: {fileID: 0}
       propertyPath: onDeathEffect
       value: 
-      objectReference: {fileID: 100000, guid: c8fd86fe5050dc04bb501b291c30f591, type: 2}
+      objectReference: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
     - target: {fileID: 0}
       propertyPath: barrelRotationSpeed
       value: 15

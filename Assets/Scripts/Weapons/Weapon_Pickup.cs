@@ -5,6 +5,7 @@ public class Weapon_Pickup : MonoBehaviour {
 
     [SerializeField] public Weapon.Weapons pickup = Weapon.Weapons.Raygun;
     [SerializeField] float rotationSpeed = 50;
+    [SerializeField] Transform spawnLocation;
 
     GameObject weaponPrefab;
     GameObject weapon;
@@ -18,7 +19,7 @@ public class Weapon_Pickup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(transform.up, rotationSpeed * Time.deltaTime, Space.World);
+        spawnLocation.Rotate(transform.up, rotationSpeed * Time.deltaTime, Space.World);
 	}
 
     public void PickUp() {
@@ -35,13 +36,13 @@ public class Weapon_Pickup : MonoBehaviour {
     
 
     public void Initialise(Weapon.Weapons pickup) {
-        if (pickup == Weapon.Weapons.Nothing)
+        if (pickup == Weapon.Weapons.Nothing) 
             Destroy(gameObject);
         
         this.pickup = pickup;
         weaponPrefab = GameController.Instance.weaponPrefabs[(int)pickup];
-        weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity) as GameObject;
-        weapon.transform.parent = transform;
+        weapon = Instantiate(weaponPrefab, spawnLocation.position, Quaternion.identity) as GameObject;
+        weapon.transform.parent = spawnLocation;
         weapon.transform.localPosition = new Vector3(0, 0, 0);
     }
 
