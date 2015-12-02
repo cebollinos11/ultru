@@ -60,9 +60,7 @@ public class MapGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.X)) {
-            Application.LoadLevel(Application.loadedLevel);
-        }
+       
 	}
 	
 	void GenerateMap() {
