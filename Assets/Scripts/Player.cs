@@ -13,6 +13,10 @@ public class Player : MonoBehaviour {
     Weapon equippedWeapon;
     LifeManager lifeManager;
     AudioSource audioSource;
+    float MAXSTAMINA = 20;
+    float currentStamina = 20;
+    
+    public bool canSprint = true;
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +54,10 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            currentStamina -= Time.deltaTime;
+            canSprint = (currentStamina <= 0);
         }
     }
 

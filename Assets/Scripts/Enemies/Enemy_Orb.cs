@@ -18,7 +18,6 @@ public class Enemy_Orb : Enemy {
     
     // Use this for initialization
     protected override void Start () {
-        Debug.Log("Ball2");
         base.Start();
         base.playerLocationUpdateTime = _playerLocationUpdateTime;
         base.viewRange = _viewRange;

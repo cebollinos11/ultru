@@ -41,6 +41,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        private float MAXSTAMINA = 20;
+        public float remainingStamina = 20;
+
+        
 
         // Use this for initialization
         private void Start()
@@ -81,6 +85,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+            
         }
 
 
@@ -212,6 +217,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
+            if (remainingStamina <= 0)
+                m_IsWalking = true;
+            else if (!m_IsWalking)
+                remainingStamina -= Time.deltaTime;
+            
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);
