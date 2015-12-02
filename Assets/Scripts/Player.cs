@@ -46,7 +46,12 @@ public class Player : MonoBehaviour {
             if (equippedWeapon != null)
                 equippedWeapon.StopFiring();
         }
-	}
+
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
 
     public void Hit(Vector3 hitPos) {
 
