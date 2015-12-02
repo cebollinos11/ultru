@@ -13,7 +13,7 @@ public class Weapon_Pickup : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        Initialise((Weapon.Weapons)Random.Range(0, 3));
+        Initialise((Weapon.Weapons)Random.Range(0, 4));
         
 	}
 	
