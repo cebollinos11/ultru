@@ -31,8 +31,6 @@ public class Enemy_Orb : Enemy {
 	
 	// Update is called once per frame
 	protected override void Update () {
-        if (hasPlayerLOS)
-            Debug.Log(Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) + "    -    " + minDistanceToPlayer);
         base.Update();
         if (!hasPlayerLOS) {
             chasing = true;

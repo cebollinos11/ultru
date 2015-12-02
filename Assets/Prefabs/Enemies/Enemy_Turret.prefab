@@ -1791,7 +1791,7 @@ MonoBehaviour:
   housing: {fileID: 494830}
   barrel1: {fileID: 450574}
   barrel2: {fileID: 488444}
-  housingRotationSpeed: 20
+  housingRotationSpeed: 27
   barrelRotationSpeed: 15
 --- !u!114 &11446794
 MonoBehaviour:
@@ -1847,7 +1847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: housingRotationSpeed
-      value: 20
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
