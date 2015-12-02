@@ -18,6 +18,7 @@ public class Enemy_Orb : Enemy {
     
     // Use this for initialization
     protected override void Start () {
+        Debug.Log("Ball2");
         base.Start();
         base.playerLocationUpdateTime = _playerLocationUpdateTime;
         base.viewRange = _viewRange;
@@ -30,15 +31,17 @@ public class Enemy_Orb : Enemy {
 	
 	// Update is called once per frame
 	protected override void Update () {
+        if (hasPlayerLOS)
+            Debug.Log(Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) + "    -    " + minDistanceToPlayer);
         base.Update();
         if (!hasPlayerLOS) {
+            chasing = true;
             isShooting = false;
         }
-        else if (hasPlayerLOS && !isShooting) { 
+        else if (hasPlayerLOS && !isShooting) {
             transform.LookAt(player.transform);
         }
         if (hasPlayerLOS && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) > minDistanceToPlayer && (!chasing || waiting)) {
-            chasing = true;
             waiting = false;
             navAgent.Resume();
         }
@@ -70,7 +73,7 @@ public class Enemy_Orb : Enemy {
         }
 
         if (isShooting) {
-            navAgent.Stop();
+            //navAgent.Stop();
             foreach (TurretHardpoint t in hardpoints) {
                 t.weapon.AutoFire();
             }
