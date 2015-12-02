@@ -100,6 +100,12 @@ public class GameController : Singleton<GameController> {
         if (Input.GetKeyDown(KeyCode.Q)) {
             ShutDown();
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            LevelManager.Instance.lvl++;
+            LevelManager.Instance.GoToMainMenu();
+        }
     }
 
 }
