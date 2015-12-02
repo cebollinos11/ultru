@@ -33,6 +33,7 @@ GameObject:
   - 124: {fileID: 12484558}
   - 92: {fileID: 9219346}
   - 81: {fileID: 8156914}
+  - 114: {fileID: 11465114}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -197,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 145424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.83168042, y: 1.83168209, z: 1.83168209}
+  m_LocalScale: {x: 3.28127074, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 454184}
   m_RootOrder: 2
@@ -287,21 +288,21 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132508}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .5
-    y: .5
-    width: .5
-    height: .5
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 120
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -508,7 +509,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 414554}
   weapon_Pickup: {fileID: 8300000, guid: ef546f1251acdb642ab895576992f6e0, type: 3}
-  weaponInHand: 1
+  startWeapon: 2
+  weaponInHand: 2
+--- !u!114 &11465114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f06233b5aee9e444bcc1b11b6806236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11473722
 MonoBehaviour:
   m_ObjectHideFlags: 1
