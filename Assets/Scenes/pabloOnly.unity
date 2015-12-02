@@ -472,6 +472,10 @@ Prefab:
       propertyPath: weaponInHand
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11440484, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
+      propertyPath: startWeapon
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
   m_IsPrefabParent: 0
