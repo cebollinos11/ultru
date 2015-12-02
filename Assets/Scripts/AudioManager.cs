@@ -4,16 +4,12 @@ using System.Collections.Generic;
 
 public enum AudioClipsType
 {
-    onHighlight,onInteract
+    onHighlight,onInteract,bossTeleport
 }
 
 
 public class AudioManager : Singleton<AudioManager>
 {
-
-
-
-
     AudioSource mainAudioSource;
     [System.Serializable]
     public class AudioType

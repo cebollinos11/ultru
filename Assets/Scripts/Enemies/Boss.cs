@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour {
     // Use this for initialization
     void Start () {
         teleportTimeRemaining = teleportTime;
+        AudioManager.PlayClip(AudioClipsType.bossTeleport);
     }
 	
 	// Update is called once per frame
@@ -65,6 +66,7 @@ public class Boss : MonoBehaviour {
     }
 
     void Teleport() {
+        AudioManager.PlayClip(AudioClipsType.bossTeleport);
         transform.position = teleportLocations[Random.Range(0, teleportLocations.Length)].position;
         //StartCoroutine(ScaleOverTime(scaleTime, new Vector3(1, 1, 1)));
     }

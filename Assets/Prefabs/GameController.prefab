@@ -152,6 +152,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8b69d2ccd03b8574fa39ab18e89c03c4, type: 3}
   - type: 1
     clip: {fileID: 8300000, guid: 6e9711cfafd4a544e88cc3fd65c9a78d, type: 3}
+  - type: 2
+    clip: {fileID: 8300000, guid: 59be5ea832a1de14d814550abb195e85, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
