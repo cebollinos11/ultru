@@ -34,6 +34,7 @@ GameObject:
   - 92: {fileID: 9219346}
   - 81: {fileID: 8156914}
   - 114: {fileID: 11405004}
+  - 114: {fileID: 11452420}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -520,8 +521,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 414554}
   weapon_Pickup: {fileID: 8300000, guid: ef546f1251acdb642ab895576992f6e0, type: 3}
-  startWeapon: 2
+  startWeapon: 3
   weaponInHand: 2
+--- !u!114 &11452420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f06233b5aee9e444bcc1b11b6806236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11473722
 MonoBehaviour:
   m_ObjectHideFlags: 1

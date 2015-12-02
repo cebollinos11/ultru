@@ -147,7 +147,11 @@ MonoBehaviour:
   backgroundSongs:
   - {fileID: 8300000, guid: 0b2d91f414bddda4c88d0fa748b50a35, type: 3}
   - {fileID: 8300000, guid: 36b4a574fa1af6745a7bf68811bd99b2, type: 3}
-  audioList: []
+  audioList:
+  - type: 0
+    clip: {fileID: 8300000, guid: 8b69d2ccd03b8574fa39ab18e89c03c4, type: 3}
+  - type: 1
+    clip: {fileID: 8300000, guid: 6e9711cfafd4a544e88cc3fd65c9a78d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

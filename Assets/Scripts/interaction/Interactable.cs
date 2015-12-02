@@ -15,15 +15,21 @@ public class Interactable : MonoBehaviour {
 
     public virtual void DoHighlight() {
         //GuiManager.DisplayInfoText("Selected " + gameObject.name);
+        
+        AudioManager.PlayClip(AudioClipsType.onHighlight);
         if(OnHighLight!=null)
-        OnHighLight();
+        { 
+            OnHighLight(); 
+           
+        }
+        
     }
     public virtual void DoDeHighlight() {
         if (OnDeHighLight != null)
         OnDeHighLight();
     }
     public virtual void DoInteractButtonDown() {
-        Debug.Log("PRESS");
+        AudioManager.PlayClip(AudioClipsType.onInteract);
         if (OnDoInteractButtonUp != null)
         OnDoInteractButtonUp();
 

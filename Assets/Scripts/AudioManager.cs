@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public enum AudioClipsType
 {
-    MusicNormal,MusicScape
+    onHighlight,onInteract
 }
 
 
