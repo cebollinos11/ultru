@@ -42,6 +42,7 @@ public class Weapon_GrenadeLauncher : Weapon {
             if (shootDelayRemaining < shootDelay)
                 shootDelayRemaining += Time.deltaTime;
             if (shootDelayRemaining >= shootDelay) {
+                bulletSound.Play();
                 waitForFire = false;
                 fireRateCooldown = fireRate;
                 shootDelayRemaining = 0;
