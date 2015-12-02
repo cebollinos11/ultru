@@ -11,7 +11,8 @@ public class Weapon : MonoBehaviour {
         Nothing = -1,
         Raygun = 0,
         Blaster = 1,
-        GrenadeLauncher = 2
+        GrenadeLauncher = 2,
+        Pistol = 3
     }
 
     protected Transform[] shootOrigin;

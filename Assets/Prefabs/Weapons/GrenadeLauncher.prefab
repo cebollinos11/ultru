@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 466928}
   - 33: {fileID: 3394486}
   - 23: {fileID: 2330274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 406588}
   - 33: {fileID: 3352776}
   - 23: {fileID: 2344102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 468854}
   - 95: {fileID: 9506030}
   - 114: {fileID: 11435464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 478146}
   - 33: {fileID: 3381808}
   - 23: {fileID: 2374656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 403470}
   - 33: {fileID: 3331982}
   - 23: {fileID: 2398612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 415910}
   - 33: {fileID: 3311968}
   - 23: {fileID: 2387338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 402666}
   - 33: {fileID: 3306812}
   - 23: {fileID: 2327954}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arch (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 456676}
   - 33: {fileID: 3390164}
   - 23: {fileID: 2337218}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - 4: {fileID: 403906}
   - 33: {fileID: 3392194}
   - 23: {fileID: 2310816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - 4: {fileID: 448226}
   - 33: {fileID: 3360014}
   - 23: {fileID: 2344198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SplitMetalBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - 4: {fileID: 461982}
   - 33: {fileID: 3387824}
   - 23: {fileID: 2306916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,6 +724,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: teamToHit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
