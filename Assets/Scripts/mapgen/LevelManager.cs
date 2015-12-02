@@ -28,6 +28,10 @@ public class LevelManager : Singleton<LevelManager> {
         Application.LoadLevel(1);
     }
 
+    public void LoadBoss() {
+        Application.LoadLevel(2);
+    }
+
     public void UpdateValues() {
         spaceStationSize = (lvl) * 10;
         orb = (lvl+1)*10;

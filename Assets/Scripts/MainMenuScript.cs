@@ -41,6 +41,11 @@ public class MainMenuScript : MonoBehaviour {
 	    if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            LevelManager.Instance.LoadBoss();
+        }
 	}
 
     public void OnStartButtonClick() {
