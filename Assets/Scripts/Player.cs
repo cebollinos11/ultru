@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : MonoBehaviour {
 
     [SerializeField] Transform hand;
     [SerializeField] AudioClip weapon_Pickup;
     [SerializeField] Weapon.Weapons startWeapon;
+    [SerializeField] GameObject theReveal;
 
     InteractionManager ioManager;
     GameController gameController;
@@ -13,6 +15,10 @@ public class Player : MonoBehaviour {
     Weapon equippedWeapon;
     LifeManager lifeManager;
     AudioSource audioSource;
+    Animator animator;
+    FirstPersonController fpsController;
+    CharacterController charController;
+
     float MAXSTAMINA = 20;
     float currentStamina = 20;
     
@@ -32,6 +38,9 @@ public class Player : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        animator = GetComponent<Animator>();
+        fpsController = GetComponent<FirstPersonController>();
+        charController = GetComponent<CharacterController>();
 	}
 	
     void OnDisable() {
@@ -115,5 +124,16 @@ public class Player : MonoBehaviour {
             weaponInHand = weaponToEquip;
         }
 
+    }
+
+    public void PlayOutro() {
+        Instantiate(theReveal, transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y +180, transform.rotation.z));
+        charController.enabled = false;
+        fpsController.enabled = false;
+        hand.gameObject.SetActive(false);
+        GUIManager.Instance.gameObject.SetActive(false);
+        animator.enabled = true;
+        
+        animator.SetTrigger("ShouldPan");
     }
 }

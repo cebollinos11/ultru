@@ -522,7 +522,9 @@ MonoBehaviour:
   hand: {fileID: 414554}
   weapon_Pickup: {fileID: 8300000, guid: ef546f1251acdb642ab895576992f6e0, type: 3}
   startWeapon: 3
+  theReveal: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
   weaponInHand: 2
+  canSprint: 1
 --- !u!114 &11452420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -626,6 +628,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  remainingStamina: 20
 --- !u!114 &11493100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -690,6 +693,10 @@ Prefab:
       propertyPath: weapon_Pickup
       value: 
       objectReference: {fileID: 8300000, guid: ef546f1251acdb642ab895576992f6e0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: theReveal
+      value: 
+      objectReference: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110580}

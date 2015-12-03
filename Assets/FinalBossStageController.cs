@@ -7,12 +7,13 @@ public class FinalBossStageController : MonoBehaviour {
     [SerializeField] Transform[] teleportLocations;
 
     bool hasTheBossSpawned;
+    Player player;
 
 	// Use this for initialization
 	void Start () {
 
         Invoke("startMusic", 2f);
-	
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
 	}
 
     public void SpawnBoss() {
@@ -26,7 +27,8 @@ public class FinalBossStageController : MonoBehaviour {
     }
 
     public void BigBossKilled() {
-        GameObject.Find("Elevator").GetComponent<ElevatorManager>().ActivateElevator();          
+        //GameObject.Find("Elevator").GetComponent<ElevatorManager>().ActivateElevator();         
+        player.PlayOutro(); 
     }
 
     void startMusic() {
