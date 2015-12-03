@@ -38,14 +38,11 @@ public class Player : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-<<<<<<< HEAD
         animator = GetComponent<Animator>();
         fpsController = GetComponent<FirstPersonController>();
         charController = GetComponent<CharacterController>();
-=======
 
         StartCoroutine(ScaleFov( true, 0.5f));
->>>>>>> d4cba3aedae362bdab3c81b243489d7b8ef84bd9
 	}
 
     public void TeleportAway() {
