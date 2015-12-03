@@ -860,7 +860,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -112.561058, y: 23.4933243, z: -102}
+  m_LocalPosition: {x: -84.0124359, y: 39.0643692, z: -49.3899918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434056}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefabs: []
-  maxHp: 1
+  maxHp: 10
   onHitEffect: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
   onDeathEffect: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
   ragdollPrefab: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda65208e319274b83d6f89217155c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1
+  maxHP: 10
   currentHP: 0
 --- !u!114 &11420290
 MonoBehaviour:
