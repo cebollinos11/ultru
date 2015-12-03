@@ -1387,6 +1387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 518986669}
   info: {fileID: 210450426}
+  maxlevel: 5
 --- !u!1 &2020518292
 GameObject:
   m_ObjectHideFlags: 0
