@@ -38,7 +38,7 @@ public class Enemy_Orb : Enemy {
         else if (hasPlayerLOS && !isShooting) {
             transform.LookAt(player.transform);
         }
-        if (hasPlayerLOS && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) > minDistanceToPlayer && (!chasing || waiting)) {
+        if (hasPlayerLOS && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) > minDistanceToPlayer && (!chasing || waiting) && Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < viewRange) {
             waiting = false;
             navAgent.Resume();
         }
@@ -62,7 +62,7 @@ public class Enemy_Orb : Enemy {
                 navAgent.destination = lastKnownPlayerLocation;
             }
         }
-        if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < minDistanceToPlayer && !hasPlayerLOS && chasing) {
+        if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < 0.6f && !hasPlayerLOS && chasing) {
             chasing = false;
             waiting = false;
             GoHome();

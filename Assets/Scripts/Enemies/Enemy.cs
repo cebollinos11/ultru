@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
     protected float rayCastTimerRemaining = 1;
     protected Vector3 lastKnownPlayerLocation;
     protected Player player;
-    protected bool hasPlayerLOS;
+    protected bool hasPlayerLOS = false;
     protected Vector3 originalLocation;
     protected Rigidbody rbody;
     protected bool isShooting;
@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour {
     protected LifeManager lifeManager;
 
     RaycastHit hit;
+
+    float waitTime = 2;
+    float waitTimeRemaining = 2;
 
     // Use this for initialization
     protected virtual void Start () {
@@ -59,6 +62,9 @@ public class Enemy : MonoBehaviour {
     protected virtual void Update () {
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        waitTimeRemaining -= Time.deltaTime;
+        if (waitTimeRemaining > 0)
+            return;
         if (rayCastTimerRemaining <= 0) {
             CheckForPlayerLOS();
             rayCastTimerRemaining = playerLocationUpdateTime;
