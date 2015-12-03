@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField] AudioClip weapon_Pickup;
     [SerializeField] Weapon.Weapons startWeapon;
     [SerializeField] GameObject theReveal;
+    [SerializeField] AudioClip endSong;
 
     InteractionManager ioManager;
     GameController gameController;
@@ -77,11 +78,6 @@ public class Player : MonoBehaviour {
             currentTime += Time.deltaTime;
             yield return null;
         } while (currentTime <= time);
-
-        GameObject.Find("FinalBossStageController").GetComponent<FinalBossStageController>().SpawnBoss();
-
-
-        Destroy(gameObject);
     }
 	
     void OnDisable() {
@@ -168,13 +164,28 @@ public class Player : MonoBehaviour {
     }
 
     public void PlayOutro() {
-        Instantiate(theReveal, transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y +180, transform.rotation.z));
+        GameObject omg = Instantiate(theReveal, transform.position, Quaternion.Euler(transform.rotation.x, transform.rotation.y +180, transform.rotation.z)) as GameObject;
         charController.enabled = false;
         fpsController.enabled = false;
-        hand.gameObject.SetActive(false);
+        hand.transform.parent = omg.transform;
+        hand.transform.localPosition = new Vector3(1f, 0, 0);
         GUIManager.Instance.gameObject.SetActive(false);
+        AudioManager.StopAll();
+        audioSource.Stop();
+
+        StartCoroutine(WaitForReveal(4f));
+    }
+
+    IEnumerator WaitForReveal(float time) {
+        float currentTime = 0.0f;
+
+        do {
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+        AudioManager.PlayBgSong(2);
         animator.enabled = true;
-        
         animator.SetTrigger("ShouldPan");
     }
 }

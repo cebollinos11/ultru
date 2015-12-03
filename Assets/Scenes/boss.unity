@@ -1516,6 +1516,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 147430, guid: b4bff2228929984429a74f2856263fef, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 127962, guid: b4bff2228929984429a74f2856263fef, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4bff2228929984429a74f2856263fef, type: 2}
   m_IsPrefabParent: 0
@@ -1995,6 +2003,10 @@ Prefab:
       propertyPath: theReveal
       value: 
       objectReference: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
+    - target: {fileID: 11440484, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
+      propertyPath: endSong
+      value: 
+      objectReference: {fileID: 8300000, guid: a2132744cc011b54a848a98797a73e63, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00ab3b3e11e112d46966e15c62b5d180, type: 2}
   m_IsPrefabParent: 0
