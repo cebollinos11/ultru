@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class LifeManager_Player : LifeManager {
 
@@ -41,6 +42,7 @@ public class LifeManager_Player : LifeManager {
         base.Heal(dmg);
         GUIManager.SetHP(currentHP);
         GUIManager.Instance.uiFlash.Flash(Color.green);
+        GetComponent<FirstPersonController>().remainingStamina = 20; //hardcode
 
     }
 }
