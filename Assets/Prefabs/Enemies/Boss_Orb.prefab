@@ -58,9 +58,9 @@ GameObject:
   - 23: {fileID: 2340922}
   - 54: {fileID: 5415156}
   - 114: {fileID: 11433406}
-  - 114: {fileID: 11470850}
+  - 114: {fileID: 11446242}
   m_Layer: 11
-  m_Name: Enemy_Orb
+  m_Name: Boss_Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,8 +88,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98579979, y: -.700445175, z: 3.77620506}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: .730000019, y: .0464100018, z: 22.3199997}
+  m_LocalScale: {x: 4.32046795, y: 4.32046747, z: 4.32046747}
   m_Children:
   - {fileID: 493458}
   - {fileID: 457106}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 40
   currentHP: 0
---- !u!114 &11470850
+--- !u!114 &11446242
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 153512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f6c49ab45255f149b64f79818cec443, type: 3}
+  m_Script: {fileID: 11500000, guid: 82e3b9ae90122384789aced69998c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefabs: []
@@ -220,16 +220,15 @@ MonoBehaviour:
   onHitEffect: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
   onDeathEffect: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
   ragdollPrefab: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
-  ragdollPushForce: 0
+  ragdollPushForce: 200
   _turretHardpoints:
   - {fileID: 493458}
   - {fileID: 457106}
   - {fileID: 447406}
   - {fileID: 483146}
   _playerLocationUpdateTime: .200000003
-  _viewRange: 100
-  minDistanceToPlayer: .5
-  _weaponsOnHardpoints: 0000000000000000
+  _viewRange: 200
+  _weaponsOnHardpoints: 01000000010000000100000001000000
 --- !u!135 &13553440
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -249,10 +248,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: _turretHardpoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: playerLocationUpdateTime
       value: 1
