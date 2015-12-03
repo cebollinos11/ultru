@@ -229,7 +229,7 @@ MonoBehaviour:
   - {fileID: 483146}
   _playerLocationUpdateTime: .200000003
   _viewRange: 100
-  minDistanceToPlayer: .5
+  minDistanceToPlayer: 5
   _weaponsOnHardpoints: 0000000000000000
 --- !u!135 &13553440
 SphereCollider:
@@ -356,7 +356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minDistanceToPlayer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

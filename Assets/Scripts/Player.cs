@@ -118,13 +118,7 @@ public class Player : MonoBehaviour {
             }
         
         }
-
         
-
-
-        
-
-
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
@@ -139,7 +133,11 @@ public class Player : MonoBehaviour {
     }
 
     public void Death() {
-
+        charController.enabled = false;
+        fpsController.enabled = false;
+        animator.enabled = true;
+        animator.SetTrigger("Death");
+        StartCoroutine(WaitForReload(5));
     }
 
     public void PickupWeapon(Weapon.Weapons weapon) {
@@ -214,5 +212,16 @@ public class Player : MonoBehaviour {
         AudioManager.PlayBgSong(2);
         animator.enabled = true;
         animator.SetTrigger("ShouldPan");
+    }
+
+    IEnumerator WaitForReload(float time) {
+        float currentTime = 0.0f;
+
+        do {
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+        Application.LoadLevel(0);
     }
 }

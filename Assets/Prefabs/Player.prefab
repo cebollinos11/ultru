@@ -14,6 +14,7 @@ GameObject:
   - 82: {fileID: 8268162}
   - 114: {fileID: 11440484}
   - 114: {fileID: 11493100}
+  - 95: {fileID: 9546862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -155,8 +156,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalRotation: {x: 0, y: .688607812, z: 0, w: .725133955}
+  m_LocalPosition: {x: -88.8000031, y: 23.7999992, z: -44.7999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 468466}
@@ -454,6 +455,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132508}
   m_Enabled: 1
+--- !u!95 &9546862
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110580}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57d96de6eedc55b47ae33f7c6672deee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &10819230
 Light:
   m_ObjectHideFlags: 1
@@ -523,6 +541,7 @@ MonoBehaviour:
   weapon_Pickup: {fileID: 8300000, guid: ef546f1251acdb642ab895576992f6e0, type: 3}
   startWeapon: 3
   theReveal: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
+  endSong: {fileID: 8300000, guid: a2132744cc011b54a848a98797a73e63, type: 3}
   weaponInHand: 2
   canSprint: 1
 --- !u!114 &11452420
