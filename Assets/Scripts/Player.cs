@@ -92,14 +92,41 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //TODO: Change to mouse button
-        if (Input.GetKey(KeyCode.R)) {
-            if (equippedWeapon != null)
-                equippedWeapon.Fire();
+
+
+        if (Application.isEditor)
+        {
+            if (Input.GetKey(KeyCode.R))
+            {
+                if (equippedWeapon != null)
+                    equippedWeapon.Fire();
+            }
+            else if (Input.GetKeyUp(KeyCode.R))
+            {
+                if (equippedWeapon != null)
+                    equippedWeapon.StopFiring();
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.R)) {
-            if (equippedWeapon != null)
-                equippedWeapon.StopFiring();
+
+        else {
+
+            if (Input.GetMouseButton(0))
+            {
+                if (equippedWeapon != null)
+                    equippedWeapon.Fire();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                if (equippedWeapon != null)
+                    equippedWeapon.StopFiring();
+            }
+        
         }
+
+        
+
+
+        
 
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
