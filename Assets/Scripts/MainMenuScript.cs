@@ -6,6 +6,7 @@ public class MainMenuScript : MonoBehaviour {
 
     public Text currentLevel;
     public Text info;
+    public int maxlevel = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +14,10 @@ public class MainMenuScript : MonoBehaviour {
         SetInfo();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        if (LevelManager.Instance.lvl > maxlevel) {
+            LevelManager.Instance.lvl = maxlevel;
+        
+        }
     }
 
     void SetInfo() {
@@ -27,6 +32,13 @@ public class MainMenuScript : MonoBehaviour {
         t += "Aid Items       \t " + LevelManager.Instance.help + "%\n";
         t += "Weapon packages \t " + LevelManager.Instance.weapon + "%\n";
         
+       
+
+        if (LevelManager.Instance.lvl == maxlevel)
+        {
+            t = "No info available...";
+        }
+
         info.text = t;
 
 
@@ -37,7 +49,7 @@ public class MainMenuScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        currentLevel.text = LevelManager.Instance.lvl.ToString();
+        currentLevel.text = LevelManager.Instance.lvl.ToString()+"/"+maxlevel.ToString();
 	    if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
@@ -50,7 +62,14 @@ public class MainMenuScript : MonoBehaviour {
 
     public void OnStartButtonClick() {
 
+        if (LevelManager.Instance.lvl < maxlevel){
         LevelManager.Instance.StartGame();
+        }
+            
+        else {
+            LevelManager.Instance.LoadBoss();
+
+        }
     
     }
 }
