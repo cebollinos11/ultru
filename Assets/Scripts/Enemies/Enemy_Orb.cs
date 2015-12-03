@@ -72,15 +72,15 @@ public class Enemy_Orb : Enemy {
         if (isShooting) {
             //navAgent.Stop();
             foreach (TurretHardpoint t in hardpoints) {
-                t.weapon.AutoFire();
+                if (t.weapon != null)
+                    t.weapon.AutoFire();
             }
         }
         else {
             navAgent.Resume();
             foreach (TurretHardpoint t in hardpoints) {
-                if (t.weapon.isFiring) {
+                if (t.weapon != null) 
                     t.weapon.StopFiring();
-                }
             }
         }
     }
