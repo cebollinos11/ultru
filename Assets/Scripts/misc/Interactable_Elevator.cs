@@ -34,6 +34,7 @@ public class Interactable_Elevator : Interactable
         if (eM.isActive)
         {
             GUIManager.Instance.interactableLabelText.text = "You successfully escaped!";
+            GameObject.Find("Player").GetComponent<Player>().TeleportAway();
             Invoke("WinGame",2f);
         }
 

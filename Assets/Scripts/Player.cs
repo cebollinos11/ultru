@@ -32,7 +32,48 @@ public class Player : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(ScaleFov( true, 0.5f));
 	}
+
+    public void TeleportAway() {
+        StartCoroutine(ScaleFov(false, 2f));
+    }
+
+    IEnumerator ScaleFov(bool to,float time)
+    {
+
+        float originalScale;
+        float destinationScale;
+        AudioManager.PlayClip(AudioClipsType.bossTeleport);
+        if (to)
+        {
+
+             originalScale =150f;
+             destinationScale = 60f;
+        }
+
+        else
+        {
+             originalScale = 60f;
+             destinationScale = 1800f;
+        }
+        
+
+        float currentTime = 0.0f;
+
+        do
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(originalScale, destinationScale, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+        GameObject.Find("FinalBossStageController").GetComponent<FinalBossStageController>().SpawnBoss();
+
+
+        Destroy(gameObject);
+    }
 	
     void OnDisable() {
         lifeManager.onDamage -= Hit;
