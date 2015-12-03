@@ -15,6 +15,14 @@ public class SprintBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rect.anchorMax = new Vector2(player.remainingStamina / 20, 1);
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player").GetComponent<FirstPersonController>();
+        }
+
+        else
+        {
+            rect.anchorMax = new Vector2(player.remainingStamina / 20, 1);
+        }
 	}
 }
