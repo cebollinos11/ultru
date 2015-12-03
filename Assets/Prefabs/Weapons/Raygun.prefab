@@ -717,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFiring: 0
   teamToHit: 1
-  _damage: 10
+  _damage: 40
   _ammoCostPerShot: 0
   _fireRate: 2
   _range: 3.40282347e+38
@@ -779,6 +779,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: teamToHit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _damage
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -85,6 +85,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+            if (Input.GetKey(KeyCode.C)) {
+
+                remainingStamina += Time.timeScale*0.1f;
+                if (remainingStamina > 20)
+                    remainingStamina = 20;
+
+            
+            
+            }
             
         }
 
