@@ -10,7 +10,8 @@ public class Enemy_Orb : Enemy {
     [SerializeField] float minDistanceToPlayer = 0.5f;
 
     TurretHardpoint[] hardpoints;
-    bool chasing;
+    [SerializeField]bool chasing;
+    [SerializeField]
     bool waiting;
     
     //For testing - To remove
@@ -26,6 +27,8 @@ public class Enemy_Orb : Enemy {
 
         //For testing. Should be run by MapGenerator.
         SpawnTurrets(4, _weaponsOnHardpoints);
+
+        lastKnownPlayerLocation = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -49,7 +52,7 @@ public class Enemy_Orb : Enemy {
                 isShooting = true;
             }
 
-            if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < minDistanceToPlayer) {
+            if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < minDistanceToPlayer && hasPlayerLOS) {
                 navAgent.Stop();
                 waiting = true;
                 rbody.velocity = Vector3.zero;
