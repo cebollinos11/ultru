@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy_Orb : Enemy {
 
     [SerializeField] Transform[] _turretHardpoints;
-    [SerializeField] float _playerLocationUpdateTime = 3;
+    [SerializeField] float _playerLocationUpdateTime;
     [SerializeField] float _viewRange = 100;
 
     [SerializeField] float minDistanceToPlayer = 0.5f;
@@ -66,7 +66,9 @@ public class Enemy_Orb : Enemy {
             }
         }
         if (Mathf.Abs(Vector3.Distance(lastKnownPlayerLocation, transform.position)) < 0.6f && !hasPlayerLOS && chasing) {
-            chasing = false;
+
+            //Debug.Log("PROBLEM IS HERE MOFO");
+            //chasing = false;
             waiting = false;
             GoHome();
             navAgent.Resume();

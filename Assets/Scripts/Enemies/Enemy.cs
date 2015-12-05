@@ -23,16 +23,17 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject ragdollPrefab;
     [SerializeField] float ragdollPushForce;
 
-    protected float playerLocationUpdateTime = 3;
+    protected float playerLocationUpdateTime = 0.2f;
     protected float viewRange = 100;
     protected int MAXHARDPOINTS = 0;
     protected NavMeshAgent navAgent;
-    protected float rayCastTimerRemaining = 1;
+    protected float rayCastTimerRemaining = 0.2f;
     protected Vector3 lastKnownPlayerLocation;
     protected Player player;
-    protected bool hasPlayerLOS = false;
+    [SerializeField] protected bool hasPlayerLOS = false;
     protected Vector3 originalLocation;
     protected Rigidbody rbody;
+    [SerializeField]
     protected bool isShooting;
     protected enemySurfacePlacement placedOnSurface;
     protected LifeManager lifeManager;
