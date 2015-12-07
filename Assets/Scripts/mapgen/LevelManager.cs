@@ -37,7 +37,7 @@ public class LevelManager : Singleton<LevelManager> {
         orb = (lvl+1)*10;
         turret = (lvl + 1) * 10;
         help = 50-lvl*4;
-        weapon = 30 - lvl*2;
+        weapon = 35 - lvl*2;
     
     }
 

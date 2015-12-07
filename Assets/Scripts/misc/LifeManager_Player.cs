@@ -6,6 +6,7 @@ public class LifeManager_Player : LifeManager {
 
     [SerializeField]
     int _maxHP;
+    public int dmgReduction;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +33,7 @@ public class LifeManager_Player : LifeManager {
 
     public override void ReceiveDamage(int dmg, Vector3 hitPos)
     {
-        base.ReceiveDamage(dmg, hitPos);
+        base.ReceiveDamage(dmg*(100-dmgReduction)/100, hitPos);
         GUIManager.SetHP(currentHP);
         GUIManager.Instance.uiFlash.Flash(Color.red);        
     }

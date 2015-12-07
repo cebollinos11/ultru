@@ -1776,11 +1776,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefabs: []
-  maxHp: 50
+  maxHp: 20
   onHitEffect: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
   onDeathEffect: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
   ragdollPrefab: {fileID: 119570, guid: a74cc4e2751271d4baa21e02546577b8, type: 2}
   ragdollPushForce: 10
+  hasPlayerLOS: 0
+  isShooting: 0
   _placedOnSurface: 0
   _turretHardpoints:
   - {fileID: 492464}
@@ -1792,7 +1794,7 @@ MonoBehaviour:
   barrel1: {fileID: 450574}
   barrel2: {fileID: 488444}
   housingRotationSpeed: 27
-  barrelRotationSpeed: 15
+  barrelRotationSpeed: 18
 --- !u!114 &11446794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,7 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda65208e319274b83d6f89217155c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 20
   currentHP: 0
 --- !u!1001 &100100000
 Prefab:
@@ -1819,11 +1821,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHp
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHP
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ragdollPrefab
@@ -1843,7 +1845,7 @@ Prefab:
       objectReference: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
     - target: {fileID: 0}
       propertyPath: barrelRotationSpeed
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: housingRotationSpeed

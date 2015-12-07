@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcda65208e319274b83d6f89217155c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 40
+  maxHP: 30
   currentHP: 0
 --- !u!114 &11470850
 MonoBehaviour:
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefabs: []
-  maxHp: 100
+  maxHp: 40
   onHitEffect: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
   onDeathEffect: {fileID: 131164, guid: 3c5f4e32698bdb04eaed647f60310510, type: 2}
   ragdollPrefab: {fileID: 163142, guid: a840d52c831b9ff49ac74511ee4a0e13, type: 2}
@@ -310,7 +310,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHp
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: onDeathEffect
@@ -322,7 +322,7 @@ Prefab:
       objectReference: {fileID: 131164, guid: cbdb9bcd7512cc542808d909b8938dcd, type: 2}
     - target: {fileID: 0}
       propertyPath: maxHP
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ragdollPrefab

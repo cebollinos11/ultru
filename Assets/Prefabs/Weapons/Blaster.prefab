@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFiring: 0
   teamToHit: 1
-  _damage: 3
+  _damage: 8
   _ammoCostPerShot: 0
   _fireRate: .5
   _shootOrigin:
@@ -1607,6 +1607,7 @@ MonoBehaviour:
   - {fileID: 461172}
   laserShotPrefab: {fileID: 136200, guid: 4eb203f69f05fdd4da4be3c128c9e528, type: 2}
   laserColor: {r: 0, g: 0, b: 0, a: 0}
+  autoAim: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1641,6 +1642,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: teamToHit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _damage
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

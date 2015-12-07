@@ -230,7 +230,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (remainingStamina <= 0)
                 m_IsWalking = true;
             else if (!m_IsWalking)
-                remainingStamina -= Time.deltaTime*0.5f;
+                remainingStamina -= Time.deltaTime*0.6f;
+
+            remainingStamina += Time.deltaTime * 0.1f;
             
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;

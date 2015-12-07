@@ -662,6 +662,7 @@ MonoBehaviour:
   maxHP: 0
   currentHP: 0
   _maxHP: 100
+  dmgReduction: 25
 --- !u!124 &12477332
 Behaviour:
   m_ObjectHideFlags: 1
@@ -723,6 +724,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RunSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dmgReduction
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
